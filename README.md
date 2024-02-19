@@ -15,6 +15,7 @@
 <p align="justify"> 1. Due to high demands, OpenAI temporarily pauses upgrades to ChatGPT 4.0 Version. Thus, ChatGPT 3.5 is used to test its performance. </p>
 
 **Reference**
+
 [1] SAT Full-Length Practice Tests. https://satsuite.collegeboard.org/digital/digital-practice-preparation/practice-tests/linear.
 
 [2] Dao, X. Q., & Le, N. B. (2023). Investigating the Effectiveness of ChatGPT in Mathematical Reasoning and Problem Solving: Evidence from the Vietnamese National High School Graduation Examination. arXiv preprint arXiv:2306.06331.

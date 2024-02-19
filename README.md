@@ -12,6 +12,9 @@
 
 <p align="justify"> Moreover, input questions are in English. Common math symbols are used, when necessary, e.g. Caret sign(’^’) for Exponentiation operation. I assume to recognize those math symbols is a basic capability of the measured LLMs. And the input of each question is the same for ChatGPT 3.5 and Bard. Each input initiates a new session so as to avoid context impacts. Thus, the input would not affect LLM’s response performance. Based on the above analysis, I am rather confident that the random quantities, whether each question is answered correctly or not by an LLM, are exchangeable. Their joint distribution doesn’t change if the sequence of their order is changed. </p>
 
+## 2. Likelihood Distribution and Prior Specification
+<p align="justify"> <b>(1) Sampling Model & Likelihood.</b> I am assessing how many of the 30 sample SAT math questions could be correctly answered by LLMs. Thus, the sampling model is binomial distribution, and the PDF is $p(y_i) = \binom(30, y_i)\theta^{y_i}$ </p>
+
 
  **Notes**
 <p align="justify"> 1. Due to high demands, OpenAI temporarily pauses upgrades to ChatGPT 4.0 Version. Thus, ChatGPT 3.5 is used to test its performance. </p>

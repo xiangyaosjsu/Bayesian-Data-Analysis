@@ -22,8 +22,7 @@
 
 [3] Nguyen, Phong; Nguyen, Phuong; Bruneau, Philippe; Cao, Linh; Wang, Jin; Truong, Hana (2023). Evaluation of Mathematics Performance of Google Bard on The Mathematics Test of the Vietnamese National High School Graduation Examination. TechRxiv. Preprint. https://doi.org/10.36227/techrxiv.23691876.v1.
 
-[4] Bee Leng Lee. Math 264 Fall 2023 Semester, Lecture E, Slide 41.
-   Problem Set 6, Question 3 (a). 
+[4] Bee Leng Lee. Math 264 Fall 2023 Semester, Lecture E, Slide 41. Problem Set 6, Question 3 (a). San Jose State University.
 
 [5] PDF of the difference between two independent beta random variables. https://math.stackexchange.com/questions/1825768/pdf-of-the-difference-between-two-independent-beta-random-variables. 
 
@@ -35,5 +34,5 @@
 
 [9] Analytical computation of the difference between two beta functions. https://osf.io/tdwgm.
 
-[10] Bee Leng Lee. Math 264 Fall 2023 Semester, Lectures.
+[10] Bee Leng Lee. Math 264 Fall 2023 Semester, Lectures. San Jose State University.
 

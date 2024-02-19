@@ -10,6 +10,7 @@
 
 <p align="justify"> <b>Exchangeability Justification.</b> Generally, there are two factors that might affect the probability to correctly answer a set of SAT questions, including question difficulty level and topics. The 184 math questions are combined to generate a single candidate question pool. These questions are assumed to have various difficulty levels and embody all required topics. However, the sample selection process doesn’t impose any restrictions to difficulty level or topics. Each question is independent, and there is no prior information regarding their topics or difficulty levels. So, the questions are exchangeable. </p>
 
+<p align="justify"> Moreover, input questions are in English. Common math symbols are used, when necessary, e.g. Caret sign(’^’) for Exponentiation operation. I assume to recognize those math symbols is a basic capability of the measured LLMs. And the input of each question is the same for ChatGPT 3.5 and Bard. Each input initiates a new session so as to avoid context impacts. Thus, the input would not affect LLM’s response performance. Based on the above analysis, I am rather confident that the random quantities, whether each question is answered correctly or not by an LLM, are exchangeable. Their joint distribution doesn’t change if the sequence of their order is changed. </p>
 
 
  **Notes**

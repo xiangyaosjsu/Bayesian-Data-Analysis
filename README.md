@@ -122,7 +122,7 @@ Above all, we can see certain evolutions from prior to posterior for both LLMs (
 also greatly decreased. The width of the spread of prior is almost [0, 1], but changes to be around \[0.3, 0.7\] in posterior.
 </p>
 
-<img src="media/image1.emf" style="width:6.5in;height:2.73889in" />
+<img src="images/Figure 1.png" width="99%" />
 
 <p align="center"> <b>Figure 1. Prior & Posterior Distribution of Theta: ChatGPT 3.5 vs. Bard </b> </p>
 
@@ -206,7 +206,7 @@ To graphically exhibit whether the derived posterior model well resemble the emp
 correctly answered. It also supports a very good model fit).
 </p>
 
-<img src="media/image2.emf" style="width:4.28796in;height:2.43443in" />
+<img src="images/Figure 2.png" width="99%" />
 
 <p align="center"> <b>Figure 2. Posterior Predictive Distribution: ChatGPT 3.5 vs. Bard</b> </p>
 
@@ -232,7 +232,7 @@ p($\theta|y$) = $\frac{\Gamma(31)}{\Gamma(17.5)\Gamma(13.5)}\theta^{16.5}(1 - \t
 As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the probability is either smaller than 10% or larger than 90%. Jeffreys and conjugate priors are quite different both in ChatGPT case and Bard case. However, for both ChatGPT and Bard case, the posteriors derived from two quite different prior distributions don’t have an obvious big discrepancy. Particularly, for Bard case, the conjugate posterior and Jeffreys posterior resembles each other very much. The difference between two posteriors in ChatGPT case is bigger than that in Bard model. But the discrepancy is not very big either. This conclusion could be supported by posterior quartiles as well (See <b>Table 2</b>). The 25%, 50% and 75% posterior quartiles difference between conjugate and Jeffreys prior is smaller than 0.03. The probability that the posterior correct rate is not larger than 80% is approximately 1 for both priors. Thus, <b>the model fit for Bard is pretty good</b> with very little variations cross different priors. For ChatGPT case, the corresponding posterior quartile difference between conjugate and Jeffreys prior is about 0.07. Not a big discrepancy either. However, the probability that the posterior correct rate is not larger than 80% is about 57% and 18% for conjugate prior and Jeffreys prior respectively. This discrepancy is not small. Thus, <b>the model fit for ChatGPT is moderate</b> that with some variation across different priors.
 </p>
 
-<img src="media/image3.emf" style="width:5.68852in;height:3.73765in" />
+<img src="images/Figure 3.png" width="99%" />
 
 <p align="center"> <b>Figure 3 Sensitivity Analysis: Conjugate vs. Jeffreys Prior Density </b> </p>
 
@@ -322,7 +322,7 @@ $\theta_{C} - \theta_{B} \approx 0.25$). (See <b>Figure 4</b>)
 
 <p align="center"> <b>Table 3. Probability of Posterior Correct Rate Difference </b> </p>
 
-<img src="media/image4.emf" style="width:2.91791in;height:2.61739in" />
+<img src="images/Figure 4.png" width="99%" />
 
 <p align="center"> <b>Figure 4. 95% HPD Credible Region for:
 $ {\theta_{C}} - {\theta_{B}}$

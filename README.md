@@ -15,37 +15,11 @@
 ## 2. Likelihood Distribution and Prior Specification
 <p align="justify"> <b>(1) Sampling Model & Likelihood.</b> I am assessing how many of the 30 sample SAT math questions could be correctly answered by LLMs. Thus, the sampling model is binomial distribution, and the PDF is p($y_{i}$) = $\binom{30}{y_{i}}\theta^{y_{i}}(1 - \theta)^{30 - y_{i}}1_{\{ 0,1,\ldots,30\}}(y_{i})$ I do one experiment each for ChatGPT 3.5 and Bard. And they correctly answer 26 and 17 sample SAT math problems respectively. Thus, the <b>likelihoods</b> are: </p>
 
+<p align="center"> <b>ChatGPT 3.5</b>: p($y_{C}|\theta_{C}$) = $\binom{30}{26}\theta_{C}^{26}\left( 1 - \theta_{C} \right)^{4}$, where $0 < \theta_{C} < 1$ <b>[1]</b> </p>
 
+<p align="center"> <b>Bard</b>: p($y_{B}{|\theta}_{B}$) = $\binom{30}{17}\theta_{B}^{17}\left( 1 - \theta_{B} \right)^{13}$, where $0 < \theta_{B} < 1$ <b>[2]</b> </p>
 
-
-
-
-
-
-
-
-
-**2. Likelihood Distribution and Prior Specification**
-
-**(1) Sampling Model & Likelihood.** I am assessing how many of the 30
-sample SAT math questions could be correctly answered by LLMs. Thus, the
-sampling model is binomial distribution, and the PDF is p($y_{i}$) =
-$\binom{30}{y_{i}}\theta^{y_{i}}(1 - \theta)^{30 - y_{i}}1_{\{ 0,1,\ldots,30\}}(y_{i})$.
-I do one experiment each for ChatGPT 3.5 and Bard. And they correctly
-answer 26 and 17 sample SAT math problems respectively. Thus, the
-**likelihoods** are:
-
-**ChatGPT 3.5**: p($y_{C}|\theta_{C}$) =
-$\binom{30}{26}\theta_{C}^{26}\left( 1 - \theta_{C} \right)^{4}$, where
-$0 < \theta_{C} < 1$ **\[1\]**
-
-**Bard**: p($y_{B}{|\theta}_{B}$) =
-$\binom{30}{17}\theta_{B}^{17}\left( 1 - \theta_{B} \right)^{13}$, where
-$0 < \theta_{B} < 1$ **\[2\]**
-
-**(2) Prior Specification: Conjugate Prior.** In this session, conjugate
-prior is developed separately for ChatGPT 3.5 and Bard likelihood, using
-different prior knowledge.
+<p align="justify"> <b>(2) Prior Specification: Conjugate Prior.</b> In this session, conjugate prior is developed separately for ChatGPT 3.5 and Bard likelihood, using different prior knowledge. 
 
 p($y_{i}$) =
 $\binom{n}{y_{i}}\theta^{y_{i}}(1 - \theta)^{n - y_{i}}1_{\{ 0,1,\ldots,n\}}(y_{i})$

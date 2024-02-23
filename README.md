@@ -317,75 +317,53 @@ $\theta_{C} - \theta_{B} \approx 0.25$). (See <b>Figure 4</b>)
 
 <p align="justify">Meanwhile, it is found that the probabilities, that the posterior correct rate difference between ChatGPT and Bard ($\theta_{C} - \theta_{B}$) is larger than 10%, 20% and 30%, are 92.97%, 68.37% and 30.14% respectively (See <b>Table 3</b>).” </p>
 
-| **p(**$\mathbf{\theta}_{\mathbf{C}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}\mathbf{> 0.1|y}$**)** | **p(**$\mathbf{\theta}_{\mathbf{C}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}\mathbf{> 0.2|y}$**)** | **p(**$\mathbf{\theta}_{\mathbf{C}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}\mathbf{> 0.3|y}$**)** |
-|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| 92.97%                                                                                          | 68.37%                                                                                          | 30.14%                                                                                          |
+| **p($\theta_{C} - \theta_{B} > 0.1 |y} $)** | **p($\theta_{C} - \theta_{B} > 0.2 |y} $)**| **p($\theta_{C} - \theta_{B} > 0.3 |y} $)** |
+| 92.97%                                       | 68.37%                                      | 30.14%                                       |
 
-**Table 3. Probability of Posterior Correct Rate Difference**
+<p align="center"> <b>Table 3. Probability of Posterior Correct Rate Difference </b> </p>
 
 <img src="media/image4.emf" style="width:2.91791in;height:2.61739in" />
 
-**Figure 4. 95% HPD Credible Region for**
-$\mathbf{\theta}_{\mathbf{C}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}$
+<p align="center"> <b>Figure 4. 95% HPD Credible Region for:
+$ {\theta_{C}} - {\theta_{B}}$
+Mathematical vs. Monte Carlos Simulation </b> </p>
 
-**7. Conclusion.** The Beta posterior distributions which is derived by
-the Binomial likelihood and Beta conjugate prior for ChatGPT 3.5 is of
-moderate model fit; the Beta posterior for Bard is of very good model
-fit. Most probably, ChatGPT 3.5’s posterior model could obtain about 80%
-correct rate with a 95% HPD credible region at \[67.78%, 91.21%\]; the
-corresponding mode for Bard is about 54% with a 95% HPD credible region
-at \[43.04%, 64.82%\]. Simply speaking, ChatGPT 3.5 has a much better
-correct rate than Bard in solving SAT math problems.
+## 7. Conclusion
+<p align="justify">The Beta posterior distributions which is derived by the Binomial likelihood and Beta conjugate prior for ChatGPT 3.5 is of moderate model fit; the Beta posterior for Bard is of very good model fit. Most probably, ChatGPT 3.5’s posterior model could obtain about 80% correct rate with a 95% HPD credible region at [67.78%, 91.21%]; the corresponding mode for Bard is about 54% with a 95% HPD credible region at [43.04%, 64.82%]. Simply speaking, ChatGPT 3.5 has a much better correct rate than Bard in solving SAT math problems. </p>
 
-Moreover, the mathematically derived PDF samples for posterior
-$\theta_{ChatGPT\ 3.5} - \theta_{Bard}$ clearly and confidently identify
-that ChatGPT 3.5 manifestly outperforms Bard in correctly responding to
-SAT math questions as well. All in all, I would bet 95 cents for \$1
-that ChatGPT have higher correct rate than Bard when handling
-mathematics problems on high school level difficulty; bet 90 cents, 65
-cents and 30 cents respectively that the correct rate for ChatGPT is
-10%, 20% and 30% larger than that of Bard.**  
-**
+<p align="justify">Moreover, the mathematically derived PDF samples for posterior $\theta_{ChatGPT\ 3.5} - \theta_{Bard}$ clearly and confidently identify that ChatGPT 3.5 manifestly outperforms Bard in correctly responding to SAT math questions as well. All in all, I would bet 95 cents for \$1 that ChatGPT have higher correct rate than Bard when handling mathematics problems on high school level difficulty; bet 90 cents, 65 cents and 30 cents respectively that the correct rate for ChatGPT is 10%, 20% and 30% larger than that of Bard.   </p>
 
-**References**
 
-\[1\] SAT Full-Length Practice Tests.
-<https://satsuite.collegeboard.org/digital/digital-practice-preparation/practice-tests/linear>.
 
-\[2\] Dao, X. Q., & Le, N. B. (2023). Investigating the Effectiveness of
-ChatGPT in Mathematical Reasoning and Problem Solving: Evidence from the
-Vietnamese National High School Graduation Examination. arXiv preprint
-arXiv:2306.06331.
+**Notes**
+1. There are 4 practice tests. Each practice test has 2 modules of Math. Thus, there are 8 modules of math tests in total.
 
-\[3\] Nguyen, Phong; Nguyen, Phuong; Bruneau, Philippe; Cao, Linh; Wang,
-Jin; Truong, Hana (2023). Evaluation of Mathematics Performance of
-Google Bard on The Mathematics Test of the Vietnamese National High
-School Graduation Examination. TechRxiv. Preprint.
-<https://doi.org/10.36227/techrxiv.23691876.v1>.
+2. Each math module has 27 questions.
 
-\[4\] Bee Leng Lee. Math 264 Fall 2023 Semester, Lecture E, Slide 41.
+3. If ChatGPT 3.5/Bard’s response to the question is the same as the correct answer, its score is 1; otherwise, score is 0
 
-Problem Set 6, Question 3 (a).
+**Reference**
 
-\[5\] PDF of the difference between two independent beta random
-variables.
-<https://math.stackexchange.com/questions/1825768/pdf-of-the-difference-between-two-independent-beta-random-variables>.
+[1] SAT Full-Length Practice Tests. https://satsuite.collegeboard.org/digital/digital-practice-preparation/practice-tests/linear.
 
-\[6\] Pham-Gia, T., Turkkan, N., & Eng, P. (1993). Bayesian analysis of
-the difference of two proportions. Communications in Statistics-Theory
-and Methods, 22(6), 1755-1771.
+[2] Dao, X. Q., & Le, N. B. (2023). Investigating the Effectiveness of ChatGPT in Mathematical Reasoning and Problem Solving: Evidence from the Vietnamese National High School Graduation Examination. arXiv preprint arXiv:2306.06331.
 
-\[7\] Hoffmann, T., Hofman, A., & Wagenmakers, E. J. (2022). Bayesian
-Tests of Two Proportions: A Tutorial With R and JASP. Methodology,
-18(4), 239-277.
+[3] Nguyen, Phong; Nguyen, Phuong; Bruneau, Philippe; Cao, Linh; Wang, Jin; Truong, Hana (2023). Evaluation of Mathematics Performance of Google Bard on The Mathematics Test of the Vietnamese National High School Graduation Examination. TechRxiv. Preprint. https://doi.org/10.36227/techrxiv.23691876.v1.
 
-\[8\] What is Rejection Sampling?
-<https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d>.
+[4] Bee Leng Lee. Math 264 Fall 2023 Semester, Lecture E, Slide 41. Problem Set 6, Question 3 (a). San Jose State University.
 
-\[9\] Analytical computation of the difference between two beta
-functions. https://osf.io/tdwgm.
+[5] PDF of the difference between two independent beta random variables. https://math.stackexchange.com/questions/1825768/pdf-of-the-difference-between-two-independent-beta-random-variables. 
 
-\[10\] Bee Leng Lee. Math 264 Fall 2023 Semester, Lectures.
+[6] Pham-Gia, T., Turkkan, N., & Eng, P. (1993). Bayesian analysis of the difference of two proportions. Communications in Statistics-Theory and Methods, 22(6), 1755-1771.
+
+[7] Hoffmann, T., Hofman, A., & Wagenmakers, E. J. (2022). Bayesian Tests of Two Proportions: A Tutorial With R and JASP. Methodology, 18(4), 239-277.
+
+[8] What is Rejection Sampling? https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d. 
+
+[9] Analytical computation of the difference between two beta functions. https://osf.io/tdwgm.
+
+[10] Bee Leng Lee. Math 264 Fall 2023 Semester, Lectures. San Jose State University.
+
 
 **Appendix I: Sample Math Questions and Responses**
 
@@ -849,39 +827,3 @@ of b?</td>
 </tr>
 </tbody>
 </table>
-
-
-
-**Notes**
-<p align="justify"> 1. Due to high demands, OpenAI temporarily pauses upgrades to ChatGPT 4.0 Version. Thus, ChatGPT 3.5 is used to test its performance. </p>
-
-1. There are 4 practice tests. Each practice test has 2
-modules of Math. Thus, there are 8 modules of math tests in total.
-2\. Each math module has 27 questions.
-
-3\. If ChatGPT 3.5/Bard’s response to the question is the same as the
-correct answer, its score is 1; otherwise, score is 0
-
-**Reference**
-
-[1] SAT Full-Length Practice Tests. https://satsuite.collegeboard.org/digital/digital-practice-preparation/practice-tests/linear.
-
-[2] Dao, X. Q., & Le, N. B. (2023). Investigating the Effectiveness of ChatGPT in Mathematical Reasoning and Problem Solving: Evidence from the Vietnamese National High School Graduation Examination. arXiv preprint arXiv:2306.06331.
-
-[3] Nguyen, Phong; Nguyen, Phuong; Bruneau, Philippe; Cao, Linh; Wang, Jin; Truong, Hana (2023). Evaluation of Mathematics Performance of Google Bard on The Mathematics Test of the Vietnamese National High School Graduation Examination. TechRxiv. Preprint. https://doi.org/10.36227/techrxiv.23691876.v1.
-
-[4] Bee Leng Lee. Math 264 Fall 2023 Semester, Lecture E, Slide 41. Problem Set 6, Question 3 (a). San Jose State University.
-
-[5] PDF of the difference between two independent beta random variables. https://math.stackexchange.com/questions/1825768/pdf-of-the-difference-between-two-independent-beta-random-variables. 
-
-[6] Pham-Gia, T., Turkkan, N., & Eng, P. (1993). Bayesian analysis of the difference of two proportions. Communications in Statistics-Theory and Methods, 22(6), 1755-1771.
-
-[7] Hoffmann, T., Hofman, A., & Wagenmakers, E. J. (2022). Bayesian Tests of Two Proportions: A Tutorial With R and JASP. Methodology, 18(4), 239-277.
-
-[8] What is Rejection Sampling? https://towardsdatascience.com/what-is-rejection-sampling-1f6aff92330d. 
-
-[9] Analytical computation of the difference between two beta functions. https://osf.io/tdwgm.
-
-[10] Bee Leng Lee. Math 264 Fall 2023 Semester, Lectures. San Jose State University.
-
-**Appendix I**

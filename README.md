@@ -17,44 +17,40 @@
 
 <p align="center"> <b>ChatGPT 3.5</b>: p($y_{C}|\theta_{C}$) = $\binom{30}{26}\theta_{C}^{26}\left( 1 - \theta_{C} \right)^{4}$, where $0 < \theta_{C} < 1$ <b>[1]</b> </p>
 
-<p align="center"> <b>Bard</b>: p($y_{B}{|\theta}_{B}$) = $\binom{30}{17}\theta_{B}^{17}\left( 1 - \theta_{B} \right)^{13}$, where $0 < \theta_{B} < 1$ <b>[2]</b> </p>
+<p align="center"> <b>Bard</b>: p($y_{B}|\theta_{B}$) = $\binom{30}{17}\theta_{B}^{17}\left( 1 - \theta_{B} \right)^{13}$, where $0 < \theta_{B} < 1$ <b>[2]</b> </p>
 
 <p align="justify"> <b>(2) Prior Specification: Conjugate Prior.</b> In this session, conjugate prior is developed separately for ChatGPT 3.5 and Bard likelihood, using different prior knowledge. 
 
-p($y_{i}$) =
-$\binom{n}{y_{i}}\theta^{y_{i}}(1 - \theta)^{n - y_{i}}1_{\{ 0,1,\ldots,n\}}(y_{i})$
-= \[$\binom{n}{y_{i}}$
-$1_{\left\{ 0,1,\ldots,n \right\}}(y_{i})\rbrack\ (1 - \theta)^{n}\{ e^{y_{i}*\log^{\left( \frac{\theta}{1 - \theta} \right)}}\}$
+p($y_{i}$) = $\binom{n}{y_{i}}\theta^{y_{i}}(1 - \theta)^{n - y_{i}}1_{\lbrace 0,1,\ldots,n \rbrace}(y_{i})$ 
+= $\lbrack \binom{n}{y_{i}} 1_{\lbrace 0,1,\ldots,n \rbrace }(y_{i})\rbrack (1 - \theta)^{n}\{e^{y_{i}*\log^{\left( \frac{\theta}{1 - \theta} \right)}}\}$
 
-We get: $h(y_{i}) = \ \binom{n}{y_{i}}$
-$1_{\left\{ 0,1,\ldots,n \right\}}(y_{i})$; g($\theta$)
-=$(1 - \theta)^{n};$
+We get: h($y_{i}$) = $\binom{n}{y_{i}} 1_{\lbrace 0,1,\ldots,n \rbrace}(y_{i})$; 
+g($\theta$) = (1 - $\theta)^{n}$;
 $q_{1}(\theta) = \log^{\left( \frac{\theta}{1 - \theta} \right)}$;
 $t_{1}\left( y_{i} \right) = y_{i}$
 
-Thus, the sampling model is an exponential family. The conjugate prior
-is:
+<p align="justify">Thus, the sampling model is an exponential family. The conjugate prior is: </p>
 
 p($\theta$) $\propto$
 $(1 - \theta)^{\tau_{0}}\{ e^{\tau_{1}*\log^{\left( \frac{\theta}{1 - \theta} \right)}}\}$
 = $\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}$
 
-> So, the prior distribution of $\theta$ is a Beta distribution with
-> $\alpha = \tau_{1} + 1,\beta = \tau_{0} - \tau_{1} + 1$:
+<p align="justify"> So, the prior distribution of $\theta$ is a Beta distribution with 
+$\alpha = \tau_{1} + 1,\beta = \tau_{0} - \tau_{1} + 1$: </p>
 
-p($\theta$) =
+<p align="center"> p($\theta$) =
 $\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}1_{(0,1)}(\theta)$
-**\[3\]**
+<b>[3]</b> </p>
 
-**Choice of Hyperparameters: ChatGPT 3.5.** A study, which assesses
+<p align="justify"> <b>Choice of Hyperparameters: ChatGPT 3.5.</b> A study, which assesses
 ChatGPT’s capabilities in the Mathematics Test of the Vietnamese
 National High School Graduation Examination (VNHSGE) in the year
 2019-2023, discovers that the accuracy rate to answer VNHSGE math
 problems is in the range \[10%, 83%\]<sup>\[2\]</sup>. This study also
 typically observes that ChatGPT could obtain a 70% success rate in the
-SAT Math competition.
+SAT Math competition.</p>
 
-VNHSGE is different from SAT test that they are designed to assess high
+<p align="justify">VNHSGE is different from SAT test that they are designed to assess high
 school graduate’s mathematics capabilities in two different countries.
 However, I don’t have other relevant research findings in available as
 reference. Thus, I would like to construct ChatGPT’s prior distribution
@@ -62,23 +58,23 @@ based on VNHSGE conclusion. I assume it is extremely likely that the
 correct rate of ChatGPT in solving SAT math problems would lie in the
 range \[10%, 83%\], such as a 95% probability. Meanwhile, I tend to
 consider 70% as the mode of the prior Beta distribution. Accordingly, we
-get the following equations:
+get the following equations: </p>
 
-$\int_{0.10}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
-**\[4\]**
+<p align="center"> $\int_{0.10}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
+<b>[4]</b> </p>
 
-$\frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\tau_{1}}{\tau_{0}} = 0.7$
-**\[5\]**
+<p align="center"> $\frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\tau_{1}}{\tau_{0}} = 0.7$  
+<b>[5] </b> </p>
 
-Through solving equation \[4\] & \[5\], I get $\tau_{0}$=20.80 &
+<p align="justify">Through solving equation \[4\] & \[5\], I get $\tau_{0}$=20.80 &
 $\tau_{1}$=14.56. That is $\alpha = 15.56,\beta = 7.24$. Therefore, the
-**Conjugate Prior for ChatGPT 3.5** likelihood is
+<b>Conjugate Prior for ChatGPT 3.5</b> likelihood is </p>
 
-p($\theta_{C}$)=
+<p align="center">p($\theta_{C}$)=
 $\frac{\Gamma(22.80)}{\Gamma(15.56)\Gamma(7.24)}\theta_{C}^{14.56}{(1 - \theta_{C})}^{6.24}1_{(0,1)}(\theta_{C})$
-**\[6\]**
+<b>[6]</b> </p>
 
-**Choice of Hyperparameters: Bard.** I didn’t find a valid prior study
+<p align="justify"> <b>Choice of Hyperparameters: Bard.</b> I didn’t find a valid prior study
 regarding how accurately Bard could answer math questions, particularly
 SAT math questions. Thus, I would like to take ChatGPT’s prior accuracy
 range as Bard’s. Meanwhile, A recent study, which also uses 2019-2023
@@ -87,21 +83,21 @@ concludes that “Bard achieved an accurate rate of 38.8%, lagging behind
 ChatGPT and BingChat”<sup>\[3\]</sup>. The accurate rate 38.8% is an
 average of the five-year accurate rate. Therefore, I tend to take 40% as
 the mean of the prior correct rate of Bard. Accordingly, I get the
-following equations:
+following equations: </p>
 
-$\int_{0.1}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
-**\[7\]**
+<p align="center"> $\int_{0.1}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
+<b>[7]</b> </p>
 
-$\frac{\alpha}{\alpha + \beta} = \frac{\tau_{1} + 1}{\tau_{0} + 2} = 0.4$
-**\[8\]**
+<p align="center"> $\frac{\alpha}{\alpha + \beta} = \frac{\tau_{1} + 1}{\tau_{0} + 2} = 0.4$
+<b>[8]</b> </p>
 
-Through solving equation \[7\] & \[8\], I get $\tau_{0}$=3.78 &
+<p align="justify"> Through solving equation \[7\] & \[8\], I get $\tau_{0}$=3.78 &
 $\tau_{1}$=1.31. That is $\alpha = 2.31,\beta = 3.47$. Therefore, the
-**Conjugate Prior** **for Bard** is
+<b>Conjugate Prior for Bard</b> is </p>
 
-$p(\theta_{B})$ =
+<p align="center"> $p(\theta_{B})$ =
 $\frac{\Gamma(5.78)}{\Gamma(2.31)\Gamma(3.47)}\theta_{B}^{1.31}{(1 - \theta_{B})}^{2.47}1_{(0,1)}(\theta_{B})$
-**\[9\]**
+<b>[9]</b> </p>
 
 **3. Posterior Distribution:**
 $\mathbf{p(}\mathbf{\theta}_{\mathbf{C}}\mathbf{|}\mathbf{y}_{\mathbf{C}}\mathbf{)}$

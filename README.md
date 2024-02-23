@@ -99,42 +99,43 @@ $\tau_{1}$=1.31. That is $\alpha = 2.31,\beta = 3.47$. Therefore, the
 $\frac{\Gamma(5.78)}{\Gamma(2.31)\Gamma(3.47)}\theta_{B}^{1.31}{(1 - \theta_{B})}^{2.47}1_{(0,1)}(\theta_{B})$
 <b>[9]</b> </p>
 
-**3. Posterior Distribution:**
-$\mathbf{p(}\mathbf{\theta}_{\mathbf{C}}\mathbf{|}\mathbf{y}_{\mathbf{C}}\mathbf{)}$
-**&
-p(**$\mathbf{\theta}_{\mathbf{B}}\mathbf{|}\mathbf{y}_{\mathbf{B}}$**)**
-
-**(1) ChatGPT 3.5.** $p(\theta_{C}|y_{C})$ $\propto$
+## 3. Posterior Distribution: $p(\theta_C \mid y_C)$ & $p(\theta_B \mid y_B)$
+<p align="justify"> <b>(1) ChatGPT 3.5.</b> $p(\theta_{C}|y_{C})$ $\propto$
 p($y_{C}|\theta_{C}$) p($\theta_{C}$)
-
 $\propto$
 $\theta_{C}^{26}\left( 1 - \theta_{C} \right)^{4}\theta_{C}^{14.56}{(1 - \theta_{C})}^{6.24}1_{(0,1)}(\theta_{C})$
-
 = $\theta_{C}^{40.56}{(1 - \theta_{C})}^{10.24}1_{(0,1)}(\theta_{C})$
+</p>
 
+<p align="justify"> 
 This is a Beta Kernel with
-$\alpha = 41.56,\beta = 11.24,\alpha + \beta = 52.80$. Thus, **Posterior
-Distribution for ChatGPT 3.5** is:
+$\alpha = 41.56,\beta = 11.24,\alpha + \beta = 52.80$. 
+Thus, <b>Posterior Distribution for ChatGPT 3.5</b> is: 
+</p>
 
+<p align="center"> 
 $p(\theta_{C}|y_{C})$ =
 $\frac{\Gamma(52.80)}{\Gamma(41.56)\Gamma(11.24)}\theta^{40.56}{(1 - \theta_{C})}^{10.24}1_{(0,1)}(\theta_{C})$
-**\[10\]**
+<b>[10]</b> 
+</p>
 
-**(2) Bard.** p($\theta_{B}|y_{B}$) $\propto$ p($y_{B}|\theta_{B}$)
-p($\theta_{B}$)
+<p align="justify">
+<b>(2) Bard.</b> 
+p($\theta_{B}|y_{B}$) $\propto$ p($y_{B}|\theta_{B}$)p($\theta_{B}$)
+$\propto$ $\theta_{B}^{17}\left( 1 - \theta_{B} \right)^{13}\theta_{B}^{1.31}{(1 - \theta_{B})}^{2.47}1_{(0,1)}(\theta_{B})$
+= $\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}1_{(0,1)}(\theta_{B})$ 
+</p>
 
-$\propto$
-$\theta_{B}^{17}\left( 1 - \theta_{B} \right)^{13}\theta_{B}^{1.31}{(1 - \theta_{B})}^{2.47}1_{(0,1)}(\theta_{B})$
-
-= $\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}1_{(0,1)}(\theta_{B})$
-
+<p align="justify"> 
 This is Beta Kernel with
-$\alpha = 19.31,\beta = 16.47,\alpha + \beta = 35.78$. Thus, **Posterior
-Distribution for Bard** is:
+$\alpha = 19.31,\beta = 16.47,\alpha + \beta = 35.78$. 
+Thus, <b>Posterior Distribution for Bard</b> is: 
+</p>
 
-$p(\theta_{B}|y_{B})$ =
-$\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}1_{(0,1)}(\theta_{B})$
-**\[11\]**
+<p align="center">
+$p(\theta_{B}|y_{B})$ = $\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}1_{(0,1)}(\theta_{B})$
+<b>[11]</b> 
+</p>
 
 **4. Summarizing Posterior Uncertainty.** Above all, we can see certain
 evolutions from prior to posterior for both LLMs (See Figure 1). For

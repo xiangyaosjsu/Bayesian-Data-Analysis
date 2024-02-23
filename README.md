@@ -42,54 +42,33 @@ $\alpha = \tau_{1} + 1,\beta = \tau_{0} - \tau_{1} + 1$: </p>
 $\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}1_{(0,1)}(\theta)$
 <b>[3]</b> </p>
 
-<p align="justify"> <b>Choice of Hyperparameters: ChatGPT 3.5.</b> A study, which assesses
-ChatGPT’s capabilities in the Mathematics Test of the Vietnamese
-National High School Graduation Examination (VNHSGE) in the year
-2019-2023, discovers that the accuracy rate to answer VNHSGE math
-problems is in the range \[10%, 83%\]<sup>\[2\]</sup>. This study also
-typically observes that ChatGPT could obtain a 70% success rate in the
-SAT Math competition.</p>
+<p align="justify"> <b>Choice of Hyperparameters: ChatGPT 3.5.</b> A study, which assesses ChatGPT’s capabilities in the Mathematics Test of the Vietnamese National High School Graduation Examination (VNHSGE) in the year 2019-2023, discovers that the accuracy rate to answer VNHSGE math problems is in the range \[10%, 83%\]<sup>\[2\]</sup>. This study also
+typically observes that ChatGPT could obtain a 70% success rate in the SAT Math competition.</p>
 
-<p align="justify">VNHSGE is different from SAT test that they are designed to assess high
-school graduate’s mathematics capabilities in two different countries.
-However, I don’t have other relevant research findings in available as
-reference. Thus, I would like to construct ChatGPT’s prior distribution
-based on VNHSGE conclusion. I assume it is extremely likely that the
-correct rate of ChatGPT in solving SAT math problems would lie in the
-range \[10%, 83%\], such as a 95% probability. Meanwhile, I tend to
-consider 70% as the mode of the prior Beta distribution. Accordingly, we
-get the following equations: </p>
+<p align="justify">VNHSGE is different from SAT test that they are designed to assess high school graduate’s mathematics capabilities in two different countries. However, I don’t have other relevant research findings in available as reference. Thus, I would like to construct ChatGPT’s prior distribution based on VNHSGE conclusion. I assume it is extremely likely that the correct rate of ChatGPT in solving SAT math problems would lie in the range \[10%, 83%\], such as a 95% probability. Meanwhile, I tend to consider 70% as the mode of the prior Beta distribution. Accordingly, we get the following equations: </p>
 
-<p align="center"> $\int_{0.10}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
-<b>[4]</b> </p>
+<p align="center"> 
+$\int_{0.10}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
+<b>[4]</b> 
+</p>
 
-<p align="center"> $\frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\tau_{1}}{\tau_{0}} = 0.7$  
-<b>[5] </b> </p>
+<p align="center"> $\frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\tau_{1}}{\tau_{0}} = 0.7$  <b>[5] </b> </p>
 
-<p align="justify">Through solving equation \[4\] & \[5\], I get $\tau_{0}$=20.80 &
-$\tau_{1}$=14.56. That is $\alpha = 15.56,\beta = 7.24$. Therefore, the
-<b>Conjugate Prior for ChatGPT 3.5</b> likelihood is </p>
+<p align="justify">
+Through solving equation \[4\] & \[5\], I get $\tau_{0}$=20.80 & $\tau_{1}$=14.56. That is $\alpha = 15.56,\beta = 7.24$. Therefore, the <b>Conjugate Prior for ChatGPT 3.5</b> likelihood is </p>
 
-<p align="center">p($\theta_{C}$)=
-$\frac{\Gamma(22.80)}{\Gamma(15.56)\Gamma(7.24)}\theta_{C}^{14.56}{(1 - \theta_{C})}^{6.24}1_{(0,1)}(\theta_{C})$
-<b>[6]</b> </p>
+<p align="center">
+p($\theta_{C}$)= $\frac{\Gamma(22.80)}{\Gamma(15.56)\Gamma(7.24)}\theta_{C}^{14.56}{(1 - \theta_{C})}^{6.24}1_{(0,1)}(\theta_{C})$
+<b>[6]</b> 
+</p>
 
-<p align="justify"> <b>Choice of Hyperparameters: Bard.</b> I didn’t find a valid prior study
-regarding how accurately Bard could answer math questions, particularly
-SAT math questions. Thus, I would like to take ChatGPT’s prior accuracy
-range as Bard’s. Meanwhile, A recent study, which also uses 2019-2023
-VNHSGE questions to assess Bard’s capabilities in solving math problems,
-concludes that “Bard achieved an accurate rate of 38.8%, lagging behind
-ChatGPT and BingChat”<sup>\[3\]</sup>. The accurate rate 38.8% is an
-average of the five-year accurate rate. Therefore, I tend to take 40% as
-the mean of the prior correct rate of Bard. Accordingly, I get the
-following equations: </p>
+<p align="justify"> <b>Choice of Hyperparameters: Bard.</b> I didn’t find a valid prior study regarding how accurately Bard could answer math questions, particularly SAT math questions. Thus, I would like to take ChatGPT’s prior accuracy range as Bard’s. Meanwhile, A recent study, which also uses 2019-2023 VNHSGE questions to assess Bard’s capabilities in solving math problems, concludes that “Bard achieved an accurate rate of 38.8%, lagging behind ChatGPT and BingChat”<sup>\[3\]</sup>. The accurate rate 38.8% is an
+average of the five-year accurate rate. Therefore, I tend to take 40% as the mean of the prior correct rate of Bard. Accordingly, I get the following equations: </p>
 
 <p align="center"> $\int_{0.1}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
 <b>[7]</b> </p>
 
-<p align="center"> $\frac{\alpha}{\alpha + \beta} = \frac{\tau_{1} + 1}{\tau_{0} + 2} = 0.4$
-<b>[8]</b> </p>
+<p align="center"> $\frac{\alpha}{\alpha + \beta} = \frac{\tau_{1} + 1}{\tau_{0} + 2} = 0.4$ <b>[8]</b> </p>
 
 <p align="justify"> Through solving equation \[7\] & \[8\], I get $\tau_{0}$=3.78 &
 $\tau_{1}$=1.31. That is $\alpha = 2.31,\beta = 3.47$. Therefore, the
@@ -139,8 +118,8 @@ $p(\theta_{B}|y_{B})$ = $\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_
 
 ## 4. Summarizing Posterior Uncertainty
 <p align="justify">
-Above all, we can see certain evolutions from prior to posterior for both LLMs (See <b>Figure 1</b>). For ChatGPT 3.5, the probable successful rate to respond to a SAT math question evolves from 70% to 80% with much stronger beliefs. The peak density of posterior is much higher than that of prior. Meanwhile, the posterior has much less uncertainty than prior. The width of the spread of prior is in the range \[0.35, 0.9\], but this range diminishes to be around \[0.6, 0.9\]. A similar trend is noticed for Bard. The most probable correct rate evolves from 35% in prior to 54% in posterior and the belief gets much stronger in posterior than in prior. The peak density of posterior is much higher than that of prior. The uncertainty
-also greatly decreased. The width of the spread of prior is almost \[0, 1\], but changes to be around \[0.3, 0.7\] in posterior.
+Above all, we can see certain evolutions from prior to posterior for both LLMs (See <b>Figure 1</b>). For ChatGPT 3.5, the probable successful rate to respond to a SAT math question evolves from 70% to 80% with much stronger beliefs. The peak density of posterior is much higher than that of prior. Meanwhile, the posterior has much less uncertainty than prior. The width of the spread of prior is in the range [0.35, 0.9], but this range diminishes to be around \[0.6, 0.9\]. A similar trend is noticed for Bard. The most probable correct rate evolves from 35% in prior to 54% in posterior and the belief gets much stronger in posterior than in prior. The peak density of posterior is much higher than that of prior. The uncertainty
+also greatly decreased. The width of the spread of prior is almost [0, 1], but changes to be around \[0.3, 0.7\] in posterior.
 </p>
 
 <img src="media/image1.emf" style="width:6.5in;height:2.73889in" />
@@ -189,9 +168,7 @@ class="math inline"><em>α</em> = 15.56, <em>β</em> = 7.24</span>)</t
 <p align="center"> <b>Table 1. Prior, Posterior and 95% HPD Credible Interval: ChatGPT 3.5 vs. Bard </b> </p>
 
 ## 5. Model Checking
-<p align="justify">Posterior Predictive Distribution (PPD) and
-sensitivity analysis is applied to check whether the derived posterior
-model is consistent with the data of interest. </p>
+<p align="justify">Posterior Predictive Distribution (PPD) and sensitivity analysis is applied to check whether the derived posterior model is consistent with the data of interest. </p>
 
 <p align="justify">
 <b>(1) Posterior Predictive Distribution (PPD).</b> 
@@ -225,16 +202,7 @@ p($y^{rep}|y$)
 **\[13\]**
 
 <p align="justify">
-To graphically exhibit whether the derived posterior model well resemble
-the empirical distribution, I use posterior PDF to simulate 5,000
-samples for each LLM posterior. Then, I get two sets of 5,000 $y_{i}$.
-The average success number for 5,000 ChatGPT replicated samples is about
-24; the corresponding average success number for 5,000 Bard samples is
-16. Compared to the observation value, the replicated data well resemble
-the observations. There is no obvious big discrepancy between
-observation and posterior predictive values (See <b>Figure 2</b>). Thus, from
-the perspective of PPD, the model fit is very good (See <b>Appendix II.2</b>
-for another summary of the PPD that uses the number of questions is
+To graphically exhibit whether the derived posterior model well resemble the empirical distribution, I use posterior PDF to simulate 5,000 samples for each LLM posterior. Then, I get two sets of 5,000 $y_{i}$. The average success number for 5,000 ChatGPT replicated samples is about 24; the corresponding average success number for 5,000 Bard samples is 16. Compared to the observation value, the replicated data well resemble the observations. There is no obvious big discrepancy between observation and posterior predictive values (See <b>Figure 2</b>). Thus, from the perspective of PPD, the model fit is very good (See <b>Appendix II.2</b> for another summary of the PPD that uses the number of questions is
 correctly answered. It also supports a very good model fit).
 </p>
 
@@ -243,19 +211,9 @@ correctly answered. It also supports a very good model fit).
 <p align="center"> <b>Figure 2. Posterior Predictive Distribution: ChatGPT 3.5 vs. Bard</b> </p>
 
 <p align="justify">
-<b>(2) Sensitivity Analysis: Conjugate Prior vs. Jeffreys Prior.</b> To do
-sensitivity analysis, I use Jeffreys prior to derive posteriors for the
-two LLMs to see whether the posteriors based on different priors have a
-big variation. The reason to compare conjugate and Jeffreys prior is
-because they represent informative and non-informative or
-weak-informative priors. If posterior derived based on them don’t have
-big variation, less sensitivity or variation of the posterior could be
-concluded. Jeffreys prior for binomial likelihood p($\theta$) is Beta
-($\frac{1}{2}$, $\frac{1}{2}$)<sup>\[4\]</sup>. So, p($\theta$)
-$\propto \theta^{- \frac{1}{2}}(1 - \theta)^{- \frac{1}{2}}1_{(0,1)}(\theta)$
-<b>[14]</b>. The computation process of posterior distributions based on
-Jeffreys prior for ChatGPT 3.5 and Bard is in the <b>Appendix II.3</b>. The
-posterior distributions are: 
+<b>(2) Sensitivity Analysis: Conjugate Prior vs. Jeffreys Prior.</b> 
+To do sensitivity analysis, I use Jeffreys prior to derive posteriors for the two LLMs to see whether the posteriors based on different priors have a big variation. The reason to compare conjugate and Jeffreys prior is because they represent informative and non-informative or weak-informative priors. If posterior derived based on them don’t have big variation, less sensitivity or variation of the posterior could be concluded. Jeffreys prior for binomial likelihood p($\theta$) is Beta ($\frac{1}{2}$, $\frac{1}{2}$)<sup>\[4\]</sup>. So, p($\theta$) $\propto \theta^{- \frac{1}{2}}(1 - \theta)^{- \frac{1}{2}}1_{(0,1)}(\theta)$ <b>[14]</b>. The computation process of posterior distributions based on
+Jeffreys prior for ChatGPT 3.5 and Bard is in the <b>Appendix II.3</b>. The posterior distributions are: 
 </p>
 
 <p align="center">
@@ -270,9 +228,8 @@ p($\theta|y$) = $\frac{\Gamma(31)}{\Gamma(17.5)\Gamma(13.5)}\theta^{16.5}(1 - \t
 <b> [16] </b>
 </p>
 
-<p align="center">
-As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the probability is either smaller than 10% or larger than 90%. Jeffreys and conjugate priors are quite different both in ChatGPT case and Bard case. However, for both ChatGPT and Bard case, the posteriors derived from two quite different prior distributions don’t have an obvious big discrepancy. Particularly, for Bard case, the conjugate posterior and Jeffreys posterior resembles each other very much. The difference
-between two posteriors in ChatGPT case is bigger than that in Bard model. But the discrepancy is not very big either. This conclusion could be supported by posterior quartiles as well (See <b>Table 2</b>). The 25%, 50% and 75% posterior quartiles difference between conjugate and Jeffreys prior is smaller than 0.03. The probability that the posterior correct rate is not larger than 80% is approximately 1 for both priors. Thus, <b>the model fit for Bard is pretty good</b> with very little variations cross different priors. For ChatGPT case, the corresponding posterior quartile difference between conjugate and Jeffreys prior is about 0.07. Not a big discrepancy either. However, the probability that the posterior correct rate is not larger than 80% is about 57% and 18% for conjugate prior and Jeffreys prior respectively. This discrepancy is not small. Thus, <b>the model fit for ChatGPT is moderate</b> that with some variation across different priors.
+<p align="justify">
+As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the probability is either smaller than 10% or larger than 90%. Jeffreys and conjugate priors are quite different both in ChatGPT case and Bard case. However, for both ChatGPT and Bard case, the posteriors derived from two quite different prior distributions don’t have an obvious big discrepancy. Particularly, for Bard case, the conjugate posterior and Jeffreys posterior resembles each other very much. The difference between two posteriors in ChatGPT case is bigger than that in Bard model. But the discrepancy is not very big either. This conclusion could be supported by posterior quartiles as well (See <b>Table 2</b>). The 25%, 50% and 75% posterior quartiles difference between conjugate and Jeffreys prior is smaller than 0.03. The probability that the posterior correct rate is not larger than 80% is approximately 1 for both priors. Thus, <b>the model fit for Bard is pretty good</b> with very little variations cross different priors. For ChatGPT case, the corresponding posterior quartile difference between conjugate and Jeffreys prior is about 0.07. Not a big discrepancy either. However, the probability that the posterior correct rate is not larger than 80% is about 57% and 18% for conjugate prior and Jeffreys prior respectively. This discrepancy is not small. Thus, <b>the model fit for ChatGPT is moderate</b> that with some variation across different priors.
 </p>
 
 <img src="media/image3.emf" style="width:5.68852in;height:3.73765in" />
@@ -292,20 +249,14 @@ between two posteriors in ChatGPT case is bigger than that in Bard model. But th
 
 ## 6. How Different is ChatGPT 3.5 and Bard in Response Accuracy to SAT Math Problems?
 
-**(1) PDF for Posterior Difference**
-$\mathbf{\theta}_{\mathbf{C,}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}$**.**
-To compare the posterior difference, we need to do reparameterization
-and generate a single PDF for
-$\theta_{C,\ post} - \theta_{B,\ post}$<sup>\[5\]</sup>. Firstly,
-assumption justification. The two LLMs are developed completely
-independent with each other. The two posterior distributions for ChatGPT
-3.5 and Bard is obtained independently using different likelihood and
-prior distribution. Consequently, the two posteriors are independent
-with each other. So, the joint distribution of
-$p\left( \theta_{C} \middle| y_{C} \right)\ \&\ p(\theta_{B}|y_{B})$ is
-the product of them:
+<p align="justify">
+<b>(1) PDF for Posterior Difference $\mathbf{\theta}_{\mathbf{C,}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}$ </b>
+To compare the posterior difference, we need to do reparameterization and generate a single PDF for $\theta_{C,\ post} - \theta_{B,\ post}$<sup>\[5\]</sup>. Firstly, assumption justification. The two LLMs are developed completely independent with each other. The two posterior distributions for ChatGPT 3.5 and Bard is obtained independently using different likelihood and prior distribution. Consequently, the two posteriors are independent with each other. So, the joint distribution of 
+$p\left( \theta_{C} \middle| y_{C} \right)\ \&\ p(\theta_{B}|y_{B})$ is the product of them: </p>
 
-$p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right) = p\left( \theta_{C,\ post} \middle| y_{C} \right)p\left( \theta_{B,\ post} \middle| y_{B} \right)$
+$p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right) $
+
+= $p\left( \theta_{C,\ post} \middle| y_{C} \right)p\left( \theta_{B,\ post} \middle| y_{B} \right)$
 
 $= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\theta_{C}^{\alpha_{C} - 1}\left( 1 - \theta_{C} \right)^{\beta_{C} - 1}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1}$
 **\[17\]**
@@ -314,15 +265,19 @@ Let
 $\gamma = \theta_{C,\ post} - \theta_{B,\ post},\ \gamma \in \lbrack - 1,\ 1\rbrack;\nu = \theta_{C,\ post}$,
 $\nu \in \lbrack 0,1\rbrack$.
 
-Then, $\theta_{C,\ post} = \nu,\theta_{B,\ post} = \nu - \gamma\ $
+Then, $\theta_{C, post} = \nu,\theta_{B, post} = \nu - \gamma $
 
-\|J\| = $\left| \begin{matrix}
-\frac{\partial_{\gamma}}{\partial_{\theta_{C,\ post}}} & \frac{\partial_{\gamma}}{\partial_{\theta_{B,\ post}}} \\
-\frac{\partial_{\nu}}{\partial_{\theta_{C,\ post}}} & \frac{\nu}{\partial_{\theta_{B,\ post}}}
-\end{matrix} \right| = \left| \begin{matrix}
+$\mid J \mid = \left| \begin{matrix}
+\frac{\partial_{\gamma}}{\partial_{\theta_{C,\ post}}} & 
+\frac{\partial_{\gamma}}{\partial_{\theta_{B,\ post}}} \\
+\frac{\partial_{\nu}}{\partial_{\theta_{C,\ post}}} & 
+\frac{\nu}{\partial_{\theta_{B,\ post}}}
+\end{matrix} \right| 
+= \left| \begin{matrix}
 1 & - 1 \\
 1 & 0
-\end{matrix} \right| = 1$
+\end{matrix} \right| 
+= 1$
 
 p$(\gamma,\nu) = p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right)|J|$
 

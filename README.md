@@ -250,7 +250,7 @@ As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the proba
 ## 6. How Different is ChatGPT 3.5 and Bard in Response Accuracy to SAT Math Problems?
 
 <p align="justify">
-<b>(1) PDF for Posterior Difference $\mathbf{\theta}_{\mathbf{C,}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}$ </b>
+<b>(1) PDF for Posterior Difference $\theta_{C}} - \theta_{B}}$ </b>
 To compare the posterior difference, we need to do reparameterization and generate a single PDF for $\theta_{C,\ post} - \theta_{B,\ post}$<sup>\[5\]</sup>. Firstly, assumption justification. The two LLMs are developed completely independent with each other. The two posterior distributions for ChatGPT 3.5 and Bard is obtained independently using different likelihood and prior distribution. Consequently, the two posteriors are independent with each other. So, the joint distribution of 
 $p\left( \theta_{C} \middle| y_{C} \right)\ \&\ p(\theta_{B}|y_{B})$ is the product of them: </p>
 
@@ -279,19 +279,26 @@ $\mid J \mid = \left| \begin{matrix}
 \end{matrix} \right| 
 = 1$
 
-p$(\gamma,\nu) = p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right)|J|$
+p$(\gamma,\nu) = p\left( \theta_{C,\ post},\theta_{B,\ post}  \middle|  y_{C},y_{B} \right)|J|$
 
-$= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\theta_{C}^{\alpha_{C} - 1}\left( 1 - \theta_{C} \right)^{\beta_{C} - 1}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1}$
+$= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}
+\theta_{C}^{\alpha_{C} - 1} \left( 1 - \theta_{C} \right)^{\beta_{C} - 1}
+\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}
+{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1}$
 
 $=$
 $\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}\nu^{\alpha_{C} - 1}{(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1}(1 - \nu + \gamma)}^{\beta_{B} - 1}$
 **\[18\]**
 
-p$(\gamma) = \int_{- 1}^{1}{p(\gamma,\nu)d\nu\ } = \int_{- 1}^{1}{\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}\nu^{\alpha_{C} - 1}{(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1}(1 - \nu + \gamma)}^{\beta_{B} - 1}d\nu}$
+p$(\gamma) 
+= \int_{- 1}^{1}{p(\gamma,\nu)d\nu\ } 
+= \int_{- 1}^{1} 
+{\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}
+\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}
+\nu^{\alpha_{C} - 1} {(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1} (1 - \nu + \gamma)}^{\beta_{B} - 1}d\nu}$
 **\[19\]**
 
-According to Pham-Gia & Turkkan’s study<sup>\[6\] \[7\]</sup>, this
-complicated integration in equation \[19\] is a piecewise function:
+<p align="justify">According to Pham-Gia & Turkkan’s study<sup>\[6\] \[7\]</sup>, this complicated integration in equation \[19\] is a piecewise function: </p>
 
 p$(\gamma) = \left\{ \begin{array}{r}
 \frac{\Gamma\left( \alpha_{B} + \beta_{C} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{C} \right)}\gamma^{\beta_{C} + \beta_{B} - 1}(1 - \gamma)^{{\alpha_{B} + \beta}_{C} - 1}F_{1}(\beta_{C},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2,\ 1 - \alpha_{C};\beta_{C} + \alpha_{B};(1 - \gamma),1 - \gamma^{2})/A,\ \ where\ 0 < \gamma \leq 1\  \\
@@ -300,32 +307,15 @@ p$(\gamma) = \left\{ \begin{array}{r}
 \end{array} \right.\ $ **\[20\]**
 
 Where A =
-$\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}$.
-$F_{1}$ is the Appell’s first hypergeometric function in two variables
-(See Appendix II.4). Then, PDF function of p$(\gamma)$ is computed by R
-(See Appendix III.5.(1)).
+$\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}
+\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}$.
+$F_{1}$ is the Appell’s first hypergeometric function in two variables (See <b>Appendix II.4</b>). Then, PDF function of p$(\gamma)$ is computed by R.
 
-**(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.** To obtain
-the 95% HPD credible region, I need the random generation for
-p$(\gamma)$. However, it is not easy to derive random samples from this
-sophisticated PDF p$(\gamma)$ (See Equation \[20\]). Thus, I employed
-the rejection sampling method to extract distribution samples from
-p$(\gamma)$ <sup>\[8\]\[9\]</sup>. Then, based on the extracted
-distribution samples, p.interval() function gives the 95% HPD credible
-region as \[0.03, 0.50\] (See Appendix III.5.(2)). This credible region
-could be interpreted as, given the observed data $y_{C}\ and\ y_{B}$,
-there is a 95% probability that posterior $\theta_{C} - \theta_{B}$ lies
-in credible interval \[0.03, 0.50\]. It indicates ChatGPT 3.5 performs
-better than Bard in correctly respond to SAT math problems in most of
-the times since the whole 95% HPD credible region is larger than 0. And,
-most probably, ChatGPT 3.5 could outperform Bard in correctly respond to
-SAT math problems at about 25% (Mode of posterior
-$\theta_{C} - \theta_{B} \approx 0.25$). (See Figure 4)
+<p align="justify"> <b>(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.</b> To obtain the 95% HPD credible region, I need the random generation for p($\gamma$). However, it is not easy to derive random samples from this sophisticated PDF p($\gamma$) (See <b>Equation [20] </b>). Thus, I employed the rejection sampling method to extract distribution samples from p$(\gamma)$ <sup>[8][9]</sup>. Then, based on the extracted distribution samples, p.interval() function gives the 95% HPD credible region as [0.03, 0.50] (See <b>Appendix III.5.(2)</b>). This credible region could be interpreted as, given the observed data $y_{C}\ and\ y_{B}$, there is a 95% probability that posterior $\theta_{C} - \theta_{B}$ lies in credible interval [0.03, 0.50]. It indicates ChatGPT 3.5 performs better than Bard in correctly respond to SAT math problems in most of the times since the whole 95% HPD credible region is larger than 0. And, most probably, ChatGPT 3.5 could outperform Bard in correctly respond to SAT math problems at about 25% (Mode of posterior
+$\theta_{C} - \theta_{B} \approx 0.25$). (See <b>Figure 4</b>)
+</p>
 
-Meanwhile, it is found that the probabilities, that the posterior
-correct rate difference between ChatGPT and Bard
-($\theta_{C} - \theta_{B}$) is larger than 10%, 20% and 30%, are 92.97%,
-68.37% and 30.14% respectively (See Table 3).”
+<p align="justify">Meanwhile, it is found that the probabilities, that the posterior correct rate difference between ChatGPT and Bard ($\theta_{C} - \theta_{B}$) is larger than 10%, 20% and 30%, are 92.97%, 68.37% and 30.14% respectively (See <b>Table 3</b>).” </p>
 
 | **p(**$\mathbf{\theta}_{\mathbf{C}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}\mathbf{> 0.1|y}$**)** | **p(**$\mathbf{\theta}_{\mathbf{C}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}\mathbf{> 0.2|y}$**)** | **p(**$\mathbf{\theta}_{\mathbf{C}}\mathbf{-}\mathbf{\theta}_{\mathbf{B}}\mathbf{> 0.3|y}$**)** |
 |-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|

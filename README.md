@@ -123,7 +123,6 @@ also greatly decreased. The width of the spread of prior is almost [0, 1], but c
 </p>
 
 <img src="images/Figure 1.png" width="99%" />
-
 <p align="center"> <b>Figure 1. Prior & Posterior Distribution of Theta: ChatGPT 3.5 vs. Bard </b> </p>
 
 <p align="justify">
@@ -207,7 +206,6 @@ correctly answered. It also supports a very good model fit).
 </p>
 
 <img src="images/Figure 2.png" width="99%" />
-
 <p align="center"> <b>Figure 2. Posterior Predictive Distribution: ChatGPT 3.5 vs. Bard</b> </p>
 
 <p align="justify">
@@ -233,7 +231,6 @@ As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the proba
 </p>
 
 <img src="images/Figure 3.png" width="99%" />
-
 <p align="center"> <b>Figure 3 Sensitivity Analysis: Conjugate vs. Jeffreys Prior Density </b> </p>
 
 |                                                          | **ChatGPT 3.5**     |                    | **Bard**            |                    |
@@ -323,7 +320,6 @@ $\theta_{C} - \theta_{B} \approx 0.25$). (See <b>Figure 4</b>)
 <p align="center"> <b>Table 3. Probability of Posterior Correct Rate Difference </b> </p>
 
 <img src="images/Figure 4.png" width="99%" />
-
 <p align="center"> <b>Figure 4. 95% HPD Credible Region for:
 $ {\theta_{C}} - {\theta_{B}}$
 Mathematical vs. Monte Carlos Simulation </b> </p>

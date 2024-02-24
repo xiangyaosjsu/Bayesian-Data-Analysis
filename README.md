@@ -237,13 +237,32 @@ As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the proba
 
 <div align="center">
 
-|                                                          | **ChatGPT 3.5**                         || **Bard**                                ||
-|----------------------------------------------------------|---------------------|--------------------|---------------------|--------------------|
-|**Posterior Quartile**                                    | **Conjugate Prior** | **Jeffreys Prior** | **Conjugate Prior** | **Jeffreys Prior** |
-| First                                                    | 0.75                | 0.82               | 0.48                | 0.50               |
-| Median                                                   | 0.79                | 0.86               | 0.54                | 0.57               |
-| Third                                                    | 0.83                | 0.90               | 0.60                | 0.63               |
-| **Pr(**$\mathbf{\theta \leq 0.8}$**\|**$\mathbf{y}$**)** | 0.566               | 0.183              | 0.9997              | 0.998              |
+<table>
+  <tr>
+    <th rowspan="2">Posterior Quartile</th>
+    <th colspan="2" scope="colgroup">ChatGPT 3.5</th>
+    <th colspan="2" scope="colgroup">Bard</th>
+  </tr>
+  <tr>
+    <th scope="col">Conjugate Prior</th>
+    <th scope="col">Jeffreys Prior</th>
+    <th scope="col">Conjugate Prior</th>
+    <th scope="col">Jeffreys Prior</th>
+  </tr>
+  <tr>
+    <td>First</td><td>0.75</td><td>0.82</td><td>0.48</td><td>0.50</td>
+  </tr>
+  <tr>
+    <td>Median</td><td>0.79</td><td>0.86</td><td>0.54</td><td>0.57</td>
+  </tr>
+  <tr>
+    <td>Third</td><td>0.83</td><td>0.90</td><td>0.60</td><td>0.63</td>
+  </tr>
+  <tr>
+    <td><b>Pr(θ≤0.8|y)</b></td><td>0.566</td><td>0.183</td><td>0.9997</td><td>0.998</td>
+  </tr>
+</table>
+
 </div>
 
 <p align="center"> <b>Table 2. Sensitivity Analysis: Conjugate vs. Jeffreys Posterior Quartile </b> </p>

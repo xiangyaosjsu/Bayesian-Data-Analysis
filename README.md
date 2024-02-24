@@ -271,12 +271,15 @@ To compare the posterior difference, we need to do reparameterization and genera
 $\theta_{C,\ post} - \theta_{B,\ post}$<sup>\[5\]</sup>. Firstly, assumption justification. The two LLMs are developed completely
 independent with each other. The two posterior distributions for ChatGPT 3.5 and Bard is obtained independently using different
 likelihood and prior distribution. Consequently, the two posteriors are independent with each other. So, the joint distribution
-of $p\left( \theta_{C} \middle| y_{C} \right)\ \&\ p(\theta_{B}|y_{B})$ is the product of them: 
+of $p\left( \theta_{C} \middle| y_{C} \right)$ &  $p(\theta_{B}|y_{B})$ is the product of them: 
 
-$p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right) = $p\left( \theta_{C,\ post} \middle| y_{C} \right)p\left( \theta_{B,\ post} \middle| y_{B} \right)$
+<div align="center">
 
-$= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\theta_{C}^{\alpha_{C} - 1}\left( 1 - \theta_{C} \right)^{\beta_{C} - 1}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1}$
-**\[17\]**
+$p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right) $
+$= p\left( \theta_{C,\ post} \middle| y_{C} \right)p\left( \theta_{B,\ post} \middle| y_{B} \right)$
+$= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\theta_{C}^{\alpha_{C} - 1}\left( 1 - \theta_{C} \right)^{\beta_{C} - 1}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1}$ **\[17\]**
+  
+</div>
 
 Let
 $\gamma = \theta_{C,\ post} - \theta_{B,\ post},\ \gamma \in \lbrack - 1,\ 1\rbrack;\nu = \theta_{C,\ post}$,
@@ -284,7 +287,8 @@ $\nu \in \lbrack 0,1\rbrack$.
 
 Then, $\theta_{C, post} = \nu,\theta_{B, post} = \nu - \gamma $
 
-$\mid J \mid = \left| \begin{matrix}
+$$
+\mid J \mid = \left| \begin{matrix}
 \frac{\partial_{\gamma}}{\partial_{\theta_{C,\ post}}} & 
 \frac{\partial_{\gamma}}{\partial_{\theta_{B,\ post}}} \\
 \frac{\partial_{\nu}}{\partial_{\theta_{C,\ post}}} & 
@@ -294,34 +298,37 @@ $\mid J \mid = \left| \begin{matrix}
 1 & - 1 \\
 1 & 0
 \end{matrix} \right| 
-= 1$
+= 1
+$$
 
-p$(\gamma,\nu) = p\left( \theta_{C,\ post},\theta_{B,\ post}  \middle|  y_{C},y_{B} \right)|J|$
+$$p(\gamma,\nu) = p\left( \theta_{C,\ post},\theta_{B,\ post}  \middle|  y_{C},y_{B} \right)|J| \\
+= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)} \\
+\theta_{C}^{\alpha_{C} - 1} \left( 1 - \theta_{C} \right)^{\beta_{C} - 1} \\
+\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)} \\
+{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1} 
+$$
 
-$= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}
-\theta_{C}^{\alpha_{C} - 1} \left( 1 - \theta_{C} \right)^{\beta_{C} - 1}
-\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}
-{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1}$
+$$
+=\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)} \\
+\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)} \\
+\nu^{\alpha_{C} - 1}{(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1}(1 - \nu + \gamma)}^{\beta_{B} - 1} **\[18\]**
+$$
 
-$=$
-$\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}\nu^{\alpha_{C} - 1}{(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1}(1 - \nu + \gamma)}^{\beta_{B} - 1}$
-**\[18\]**
-
-p$(\gamma) 
-= \int_{- 1}^{1}{p(\gamma,\nu)d\nu\ } 
-= \int_{- 1}^{1} 
-{\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}
-\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}
-\nu^{\alpha_{C} - 1} {(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1} (1 - \nu + \gamma)}^{\beta_{B} - 1}d\nu}$
-**\[19\]**
+$$
+p(\gamma) = \int_{- 1}^{1}{p(\gamma,\nu)d\nu\ } = \int_{- 1}^{1} \\
+{\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)} \\
+\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)} \\
+\nu^{\alpha_{C} - 1} {(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1} (1 - \nu + \gamma)}^{\beta_{B} - 1}d\nu} **\[19\]**
+$$
 
 <p align="justify">According to Pham-Gia & Turkkan’s study<sup>\[6\] \[7\]</sup>, this complicated integration in equation \[19\] is a piecewise function: </p>
 
-p$(\gamma) = \left\{ \begin{array}{r}
-\frac{\Gamma\left( \alpha_{B} + \beta_{C} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{C} \right)}\gamma^{\beta_{C} + \beta_{B} - 1}(1 - \gamma)^{{\alpha_{B} + \beta}_{C} - 1}F_{1}(\beta_{C},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2,\ 1 - \alpha_{C};\beta_{C} + \alpha_{B};(1 - \gamma),1 - \gamma^{2})/A,\ \ where\ 0 < \gamma \leq 1\  \\
-\frac{\Gamma\left( \alpha_{C} + \beta_{B} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{B} \right)}( - \gamma)^{\beta_{C} + \beta_{B} - 1}(1 + \gamma)^{{\alpha_{C} + \beta}_{B} - 1}F_{1}(\beta_{B},\ 1 - \alpha_{B},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2;\beta_{B} + \alpha_{C};1 - \gamma^{2},\ (1 + \gamma))/A,\ \ where\  - 1 \leq \gamma < 0 \\
-\frac{\Gamma\left( \alpha_{C} + \alpha_{B} + \beta_{C} + \beta_{B} - 2 \right)}{\Gamma\left( {\alpha_{C} + \alpha}_{B} - 1 \right)\Gamma\left( \beta_{C} + \beta_{B} - 1 \right)}/A,\ \ where\ \gamma = 0,\ where\ \gamma = 0,\ \alpha_{C} + \alpha_{B} > 1,\beta_{C} + \beta_{B} > 1
-\end{array} \right.\ $ **\[20\]**
+$$
+\[ p(\gamma) = \left\{ \begin{array}{lll}
+\frac{\Gamma\left( \alpha_{B} + \beta_{C} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{C} \right)} \gamma^{\beta_{C} + \beta_{B} - 1}(1 - \gamma)^{\alpha_{B} + \beta_{C} - 1} F_{1}(\beta_{C},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2,\ 1 - \alpha_{C};\beta_{C} + \alpha_{B};(1 - \gamma),1 - \gamma^{2})/A,\ \ where\ 0 < \gamma \leq 1\;  \\
+\frac{\Gamma\left( \alpha_{C} + \beta_{B} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{B} \right)}( - \gamma)^{\beta_{C} + \beta_{B} - 1}(1 + \gamma)^{\alpha_{C} + \beta_{B} - 1} F_{1}(\beta_{B},\ 1 - \alpha_{B},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2;\beta_{B} + \alpha_{C};1 - \gamma^{2},\ (1 + \gamma)) / A,\ \ where\  - 1 \leq \gamma < 0; \\
+\frac{\Gamma\left( \alpha_{C} + \alpha_{B} + \beta_{C} + \beta_{B} - 2 \right)}{\Gamma\left( \alpha_{C} + \alpha_{B} - 1 \right)\Gamma\left( \beta_{C} + \beta_{B} - 1 \right)}/A,\ \ where\ \gamma = 0,\ where\ \gamma = 0,\ \alpha_{C} + \alpha_{B} > 1,\beta_{C} + \beta_{B} > 1 \end{array} \right.\ \]
+$$
 
 Where A =
 $\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}

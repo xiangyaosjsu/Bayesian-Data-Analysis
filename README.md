@@ -118,8 +118,8 @@ $p(\theta_{B}|y_{B})$ = $\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_
 
 ## 4. Summarizing Posterior Uncertainty
 <p align="justify">
-Above all, we can see certain evolutions from prior to posterior for both LLMs (See <b>Figure 1</b>). For ChatGPT 3.5, the probable successful rate to respond to a SAT math question evolves from 70% to 80% with much stronger beliefs. The peak density of posterior is much higher than that of prior. Meanwhile, the posterior has much less uncertainty than prior. The width of the spread of prior is in the range [0.35, 0.9], but this range diminishes to be around \[0.6, 0.9\]. A similar trend is noticed for Bard. The most probable correct rate evolves from 35% in prior to 54% in posterior and the belief gets much stronger in posterior than in prior. The peak density of posterior is much higher than that of prior. The uncertainty
-also greatly decreased. The width of the spread of prior is almost [0, 1], but changes to be around \[0.3, 0.7\] in posterior.
+Above all, we can see certain evolutions from prior to posterior for both LLMs (See <b>Figure 1</b>). For ChatGPT 3.5, the probable successful rate to respond to a SAT math question evolves from 70% to 80% with much stronger beliefs. The peak density of posterior is much higher than that of prior. Meanwhile, the posterior has much less uncertainty than prior. The width of the spread of prior is in the range [0.35, 0.9], but this range diminishes to be around [0.6, 0.9]. A similar trend is noticed for Bard. The most probable correct rate evolves from 35% in prior to 54% in posterior and the belief gets much stronger in posterior than in prior. The peak density of posterior is much higher than that of prior. The uncertainty
+also greatly decreased. The width of the spread of prior is almost [0, 1], but changes to be around [0.3, 0.7] in posterior.
 </p>
 
 <img src="images/Figure 1.png" width="99%" />
@@ -321,7 +321,7 @@ p(\gamma) = \int_{- 1}^{1}{p(\gamma,\nu)d\nu\ } = \int_{- 1}^{1} \\
 \nu^{\alpha_{C} - 1} {(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1} (1 - \nu + \gamma)}^{\beta_{B} - 1}d\nu} **\[19\]**
 $$
 
-<p align="justify">According to Pham-Gia & Turkkan’s study<sup>\[6\] \[7\]</sup>, this complicated integration in equation [19] is a piecewise function: </p>
+<p align="justify">According to Pham-Gia & Turkkan’s study<sup>[6][7]</sup>, this complicated integration in equation [19] is a piecewise function: </p>
 
 <div align="center"><img src="images/Formula 20.png"/></div>
 
@@ -330,7 +330,7 @@ $\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \rig
 \frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}$.
 $F_{1}$ is the Appell’s first hypergeometric function in two variables (See <b>Appendix II.4</b>). Then, PDF function of p$(\gamma)$ is computed by R.
 
-<p align="justify"> <b>(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.</b> To obtain the 95% HPD credible region, I need the random generation for p(γ). However, it is not easy to derive random samples from this sophisticated PDF p(γ) (See <b>Equation [20] </b>). Thus, I employed the rejection sampling method to extract distribution samples from p(γ) <sup>[8][9]</sup>. Then, based on the extracted distribution samples, p.interval() function gives the 95% HPD credible region as [0.03, 0.50] (See <b>Appendix III.5.(2)</b>). This credible region could be interpreted as, given the observed data y<sup>C</sup> and y<sup>B</sup>, there is a 95% probability that posterior θ<sup>C</sup> - θ<sup>B</sup> lies in credible interval [0.03, 0.50]. It indicates ChatGPT 3.5 performs better than Bard in correctly respond to SAT math problems in most of the times since the whole 95% HPD credible region is larger than 0. And, most probably, ChatGPT 3.5 could outperform Bard in correctly respond to SAT math problems at about 25% (Mode of posterior θ<sup>C</sup> - θ<sup>B</sup> ≈ 0.25). (See <b>Figure 4</b>)
+<p align="justify"> <b>(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.</b> To obtain the 95% HPD credible region, I need the random generation for p(γ). However, it is not easy to derive random samples from this sophisticated PDF p(γ) (See <b>Equation [20] </b>). Thus, I employed the rejection sampling method to extract distribution samples from p(γ) <sup>[8][9]</sup>. Then, based on the extracted distribution samples, p.interval() function gives the 95% HPD credible region as [0.03, 0.50] (See <b> Code 5.(2)</b>). This credible region could be interpreted as, given the observed data y<sup>C</sup> and y<sup>B</sup>, there is a 95% probability that posterior θ<sup>C</sup> - θ<sup>B</sup> lies in credible interval [0.03, 0.50]. It indicates ChatGPT 3.5 performs better than Bard in correctly respond to SAT math problems in most of the times since the whole 95% HPD credible region is larger than 0. And, most probably, ChatGPT 3.5 could outperform Bard in correctly respond to SAT math problems at about 25% (Mode of posterior θ<sup>C</sup> - θ<sup>B</sup> ≈ 0.25). (See <b>Figure 4</b>)
 </p>
 
 <p align="justify">Meanwhile, it is found that the probabilities, that the posterior correct rate difference between ChatGPT and Bard (θ<sup>C</sup> - θ<sup>B</sup>) is larger than 10%, 20% and 30%, are 92.97%, 68.37% and 30.14% respectively (See <b>Table 3</b>).” </p>
@@ -347,13 +347,13 @@ $F_{1}$ is the Appell’s first hypergeometric function in two variables (See <b
 
 <img src="images/Figure 4.png" width="99%" />
 <p align="center"> <b>Figure 4. 95% HPD Credible Region for:
-$ {\theta_{C}} - {\theta_{B}}$
+$$\theta_{C} - \theta_{B}$$
 Mathematical vs. Monte Carlos Simulation </b> </p>
 
 ## 7. Conclusion
 <p align="justify">The Beta posterior distributions which is derived by the Binomial likelihood and Beta conjugate prior for ChatGPT 3.5 is of moderate model fit; the Beta posterior for Bard is of very good model fit. Most probably, ChatGPT 3.5’s posterior model could obtain about 80% correct rate with a 95% HPD credible region at [67.78%, 91.21%]; the corresponding mode for Bard is about 54% with a 95% HPD credible region at [43.04%, 64.82%]. Simply speaking, ChatGPT 3.5 has a much better correct rate than Bard in solving SAT math problems. </p>
 
-<p align="justify">Moreover, the mathematically derived PDF samples for posterior $\theta_{ChatGPT\ 3.5} - \theta_{Bard}$ clearly and confidently identify that ChatGPT 3.5 manifestly outperforms Bard in correctly responding to SAT math questions as well. All in all, I would bet 95 cents for \$1 that ChatGPT have higher correct rate than Bard when handling mathematics problems on high school level difficulty; bet 90 cents, 65 cents and 30 cents respectively that the correct rate for ChatGPT is 10%, 20% and 30% larger than that of Bard.   </p>
+<p align="justify">Moreover, the mathematically derived PDF samples for posterior $\theta_{ChatGPT\ 3.5} - \theta_{Bard}$ clearly and confidently identify that ChatGPT 3.5 manifestly outperforms Bard in correctly responding to SAT math questions as well. All in all, I would bet 95 cents for $1 that ChatGPT have higher correct rate than Bard when handling mathematics problems on high school level difficulty; bet 90 cents, 65 cents and 30 cents respectively that the correct rate for ChatGPT is 10%, 20% and 30% larger than that of Bard.   </p>
 
 
 

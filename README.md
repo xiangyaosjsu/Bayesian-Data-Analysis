@@ -321,13 +321,13 @@ p(\gamma) = \int_{- 1}^{1}{p(\gamma,\nu)d\nu\ } = \int_{- 1}^{1} \\
 \nu^{\alpha_{C} - 1} {(1 - \nu)}^{\beta_{C} - 1}{(\nu - \gamma)^{\alpha_{B} - 1} (1 - \nu + \gamma)}^{\beta_{B} - 1}d\nu} **\[19\]**
 $$
 
-<p align="justify">According to Pham-Gia & Turkkan’s study<sup>\[6\] \[7\]</sup>, this complicated integration in equation \[19\] is a piecewise function: </p>
+<p align="justify">According to Pham-Gia & Turkkan’s study<sup>\[6\] \[7\]</sup>, this complicated integration in equation [19] is a piecewise function: </p>
 
 $$
-\[ p(\gamma) = \left\{ \begin{array}{lll}
+p(\gamma) = \left\{ \begin{array}{lll}
 \frac{\Gamma\left( \alpha_{B} + \beta_{C} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{C} \right)} \gamma^{\beta_{C} + \beta_{B} - 1}(1 - \gamma)^{\alpha_{B} + \beta_{C} - 1} F_{1}(\beta_{C},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2,\ 1 - \alpha_{C};\beta_{C} + \alpha_{B};(1 - \gamma),1 - \gamma^{2})/A,\ \ where\ 0 < \gamma \leq 1\;  \\
 \frac{\Gamma\left( \alpha_{C} + \beta_{B} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{B} \right)}( - \gamma)^{\beta_{C} + \beta_{B} - 1}(1 + \gamma)^{\alpha_{C} + \beta_{B} - 1} F_{1}(\beta_{B},\ 1 - \alpha_{B},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2;\beta_{B} + \alpha_{C};1 - \gamma^{2},\ (1 + \gamma)) / A,\ \ where\  - 1 \leq \gamma < 0; \\
-\frac{\Gamma\left( \alpha_{C} + \alpha_{B} + \beta_{C} + \beta_{B} - 2 \right)}{\Gamma\left( \alpha_{C} + \alpha_{B} - 1 \right)\Gamma\left( \beta_{C} + \beta_{B} - 1 \right)}/A,\ \ where\ \gamma = 0,\ where\ \gamma = 0,\ \alpha_{C} + \alpha_{B} > 1,\beta_{C} + \beta_{B} > 1 \end{array} \right.\ \]
+\frac{\Gamma\left( \alpha_{C} + \alpha_{B} + \beta_{C} + \beta_{B} - 2 \right)}{\Gamma\left( \alpha_{C} + \alpha_{B} - 1 \right)\Gamma\left( \beta_{C} + \beta_{B} - 1 \right)}/A,\ \ where\ \gamma = 0,\ where\ \gamma = 0,\ \alpha_{C} + \alpha_{B} > 1,\beta_{C} + \beta_{B} > 1 \end{array} \right.\
 $$
 
 Where A =

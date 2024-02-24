@@ -323,26 +323,25 @@ $$
 
 <p align="justify">According to Pham-Gia & Turkkan’s study<sup>\[6\] \[7\]</sup>, this complicated integration in equation [19] is a piecewise function: </p>
 
-$$
-p(\gamma) = \left\{ \begin{array}{lll}
-\frac{\Gamma\left( \alpha_{B} + \beta_{C} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{C} \right)} \gamma^{\beta_{C} + \beta_{B} - 1}(1 - \gamma)^{\alpha_{B} + \beta_{C} - 1} F_{1}(\beta_{C},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2,\ 1 - \alpha_{C};\beta_{C} + \alpha_{B};(1 - \gamma),1 - \gamma^{2})/A,\ \ where\ 0 < \gamma \leq 1\;  \\
-\frac{\Gamma\left( \alpha_{C} + \beta_{B} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{B} \right)}( - \gamma)^{\beta_{C} + \beta_{B} - 1}(1 + \gamma)^{\alpha_{C} + \beta_{B} - 1} F_{1}(\beta_{B},\ 1 - \alpha_{B},\alpha_{C} + \beta_{C} + \alpha_{B} + \beta_{B} - 2;\beta_{B} + \alpha_{C};1 - \gamma^{2},\ (1 + \gamma)) / A,\ \ where\  - 1 \leq \gamma < 0; \\
-\frac{\Gamma\left( \alpha_{C} + \alpha_{B} + \beta_{C} + \beta_{B} - 2 \right)}{\Gamma\left( \alpha_{C} + \alpha_{B} - 1 \right)\Gamma\left( \beta_{C} + \beta_{B} - 1 \right)}/A,\ \ where\ \gamma = 0,\ where\ \gamma = 0,\ \alpha_{C} + \alpha_{B} > 1,\beta_{C} + \beta_{B} > 1 \end{array} \right.\
-$$
+<div align="center"><img src="images/Formula 20.png"/></div>
 
 Where A =
 $\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}
 \frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}$.
 $F_{1}$ is the Appell’s first hypergeometric function in two variables (See <b>Appendix II.4</b>). Then, PDF function of p$(\gamma)$ is computed by R.
 
-<p align="justify"> <b>(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.</b> To obtain the 95% HPD credible region, I need the random generation for p($\gamma$). However, it is not easy to derive random samples from this sophisticated PDF p($\gamma$) (See <b>Equation [20] </b>). Thus, I employed the rejection sampling method to extract distribution samples from p$(\gamma)$ <sup>[8][9]</sup>. Then, based on the extracted distribution samples, p.interval() function gives the 95% HPD credible region as [0.03, 0.50] (See <b>Appendix III.5.(2)</b>). This credible region could be interpreted as, given the observed data $y_{C}\ and\ y_{B}$, there is a 95% probability that posterior $\theta_{C} - \theta_{B}$ lies in credible interval [0.03, 0.50]. It indicates ChatGPT 3.5 performs better than Bard in correctly respond to SAT math problems in most of the times since the whole 95% HPD credible region is larger than 0. And, most probably, ChatGPT 3.5 could outperform Bard in correctly respond to SAT math problems at about 25% (Mode of posterior
-$\theta_{C} - \theta_{B} \approx 0.25$). (See <b>Figure 4</b>)
+<p align="justify"> <b>(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.</b> To obtain the 95% HPD credible region, I need the random generation for p(γ). However, it is not easy to derive random samples from this sophisticated PDF p(γ) (See <b>Equation [20] </b>). Thus, I employed the rejection sampling method to extract distribution samples from p(γ) <sup>[8][9]</sup>. Then, based on the extracted distribution samples, p.interval() function gives the 95% HPD credible region as [0.03, 0.50] (See <b>Appendix III.5.(2)</b>). This credible region could be interpreted as, given the observed data y<sup>C</sup> and y<sup>B</sup>, there is a 95% probability that posterior θ<sup>C</sup> - θ<sup>B</sup> lies in credible interval [0.03, 0.50]. It indicates ChatGPT 3.5 performs better than Bard in correctly respond to SAT math problems in most of the times since the whole 95% HPD credible region is larger than 0. And, most probably, ChatGPT 3.5 could outperform Bard in correctly respond to SAT math problems at about 25% (Mode of posterior θ<sup>C</sup> - θ<sup>B</sup> ≈ 0.25). (See <b>Figure 4</b>)
 </p>
 
-<p align="justify">Meanwhile, it is found that the probabilities, that the posterior correct rate difference between ChatGPT and Bard ($\theta_{C} - \theta_{B}$) is larger than 10%, 20% and 30%, are 92.97%, 68.37% and 30.14% respectively (See <b>Table 3</b>).” </p>
+<p align="justify">Meanwhile, it is found that the probabilities, that the posterior correct rate difference between ChatGPT and Bard (θ<sup>C</sup> - θ<sup>B</sup>) is larger than 10%, 20% and 30%, are 92.97%, 68.37% and 30.14% respectively (See <b>Table 3</b>).” </p>
 
-| **p($\theta_{C} - \theta_{B} > 0.1 |y} $)** | **p($\theta_{C} - \theta_{B} > 0.2 |y} $)**| **p($\theta_{C} - \theta_{B} > 0.3 |y} $)** |
-| 92.97%                                       | 68.37%                                      | 30.14%                                       |
+<div align="center">
+  
+| $p(\theta_{C} - \theta_{B} > 0.1 \|y)$  | $p(\theta_{C} - \theta_{B} > 0.2 \|y)$ | $p(\theta_{C} - \theta_{B} > 0.3 \|y)$ |
+|-----------------------------------------|----------------------------------------|----------------------------------------|
+| 92.97%                                  | 68.37%                                 | 30.14%                                 |
+
+</div>
 
 <p align="center"> <b>Table 3. Probability of Posterior Correct Rate Difference </b> </p>
 

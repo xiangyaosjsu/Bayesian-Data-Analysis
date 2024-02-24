@@ -123,13 +123,13 @@ also greatly decreased. The width of the spread of prior is almost [0, 1], but c
 </p>
 
 <img src="images/Figure 1.png" width="99%" />
-<p align="center"> <b>Figure 1. Prior & Posterior Distribution of Theta: ChatGPT 3.5 vs. Bard </b> </p>
+<p align="center" margin-top=0> <b>Figure 1. Prior & Posterior Distribution of Theta: ChatGPT 3.5 vs. Bard </b> </p>
 
 <p align="justify">
 The <b>95% Highest posterior density (HPD)</b> credible interval for ChatGPT 3.5 and Bard to correctly answer SAT math problems is [67.78%, 91.21%] and [43.04%, 64.82%] respectively (See <b>Table 1</b>). Posterior mode for ChatGPT 3.5 = $\frac{41.56 - 1}{52.80 - 2} \approx 80\%$; posterior mode for Bard = $\frac{19.31 - 1}{35.78 - 2} \approx 54\%$. ChatGPT 3.5 would mostly have a correct rate above 65%. However, Bard would mostly have a correct rate below 65%. According to the 95% HPD credible intervals, ChatGPT 3.5 surpasses Bard in terms of correctly respond to SAT math problems in most times.
 </p>
 
-<p align="center">
+<div align="center">
 <table>
 <colgroup>
 <col style="width: 16%" />
@@ -162,7 +162,7 @@ class="math inline"><em>α</em> = 15.56, <em>β</em> = 7.24</span>)</t
 </tr>
 </tbody>
 </table>
-</p>
+</div>
 
 <p align="center"> <b>Table 1. Prior, Posterior and 95% HPD Credible Interval: ChatGPT 3.5 vs. Bard </b> </p>
 
@@ -177,11 +177,11 @@ $0 < \theta < 1$.
 Then, p($y^{rep}|y$) = $\int_{0}^{1}{p(y^{rep}|\theta)p(\theta|y)d\theta}$
 </p>
 
-**ChatGPT 3.5**. 
+**ChatGPT 3.5:**
 
-p($y^{rep}|y$) 
+<div align="center">
 
-= $\int_{0}^{1} {\binom{30}{y^{rep}} \theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}
+p($y^{rep}|y$) = $\int_{0}^{1} {\binom{30}{y^{rep}} \theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}
 \frac{\Gamma(52.80)}{\Gamma(41.56)\Gamma(11.24)}
 \theta^{40.56}
 {(1 - \theta_{C})}^{10.24} d\theta}$
@@ -190,15 +190,17 @@ p($y^{rep}|y$)
 \frac{\Gamma(y^{rep} + 41.56)\Gamma(41.24 - y^{rep})}{\Gamma(82.80)}1_{\{ 0,1,\ldots,30\}}
 (y^{rep})$
 **\[12\]**
+</div>
 
-**Bard**. 
+**Bard:** 
 
-p($y^{rep}|y$) 
-
-= $\int_{0}^{1}{\binom{30}{y^{rep}}\theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}d\theta}$
+<div align="center">
+  
+p($y^{rep}|y$) = $\int_{0}^{1}{\binom{30}{y^{rep}}\theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}d\theta}$
 
 = $\binom{30}{y^{rep}}\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\frac{\Gamma(y^{rep} + 19.31)\Gamma(46.47 - y^{rep})}{\Gamma(65.78)}1_{\{ 0,1,\ldots,30\}}(y^{rep})$
 **\[13\]**
+</div>
 
 <p align="justify">
 To graphically exhibit whether the derived posterior model well resemble the empirical distribution, I use posterior PDF to simulate 5,000 samples for each LLM posterior. Then, I get two sets of 5,000 $y_{i}$. The average success number for 5,000 ChatGPT replicated samples is about 24; the corresponding average success number for 5,000 Bard samples is 16. Compared to the observation value, the replicated data well resemble the observations. There is no obvious big discrepancy between observation and posterior predictive values (See <b>Figure 2</b>). Thus, from the perspective of PPD, the model fit is very good (See <b>Appendix II.2</b> for another summary of the PPD that uses the number of questions is
@@ -233,14 +235,16 @@ As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the proba
 <img src="images/Figure 3.png" width="99%" />
 <p align="center"> <b>Figure 3 Sensitivity Analysis: Conjugate vs. Jeffreys Prior Density </b> </p>
 
-|                                                          | **ChatGPT 3.5**     |                    | **Bard**            |                    |
+<div align="center">
+
+|                                                          | **ChatGPT 3.5**                         || **Bard**                                ||
 |----------------------------------------------------------|---------------------|--------------------|---------------------|--------------------|
-|                                                          | **Conjugate Prior** | **Jeffreys Prior** | **Conjugate Prior** | **Jeffreys Prior** |
-| **Posterior Quartile**                                   |                     |                    |                     |                    |
+|**Posterior Quartile**                                    | **Conjugate Prior** | **Jeffreys Prior** | **Conjugate Prior** | **Jeffreys Prior** |
 | First                                                    | 0.75                | 0.82               | 0.48                | 0.50               |
 | Median                                                   | 0.79                | 0.86               | 0.54                | 0.57               |
 | Third                                                    | 0.83                | 0.90               | 0.60                | 0.63               |
 | **Pr(**$\mathbf{\theta \leq 0.8}$**\|**$\mathbf{y}$**)** | 0.566               | 0.183              | 0.9997              | 0.998              |
+</div>
 
 <p align="center"> <b>Table 2. Sensitivity Analysis: Conjugate vs. Jeffreys Posterior Quartile </b> </p>
 

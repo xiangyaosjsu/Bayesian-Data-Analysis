@@ -42,10 +42,10 @@ $\alpha = \tau_{1} + 1,\beta = \tau_{0} - \tau_{1} + 1$: </p>
 $\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}1_{(0,1)}(\theta)$
 <b>[3]</b> </p>
 
-<p align="justify"> <b>Choice of Hyperparameters: ChatGPT 3.5.</b> A study, which assesses ChatGPT’s capabilities in the Mathematics Test of the Vietnamese National High School Graduation Examination (VNHSGE) in the year 2019-2023, discovers that the accuracy rate to answer VNHSGE math problems is in the range \[10%, 83%\]<sup>\[2\]</sup>. This study also
+<p align="justify"> <b>Choice of Hyperparameters: ChatGPT 3.5.</b> A study, which assesses ChatGPT’s capabilities in the Mathematics Test of the Vietnamese National High School Graduation Examination (VNHSGE) in the year 2019-2023, discovers that the accuracy rate to answer VNHSGE math problems is in the range [10%, 83%]<sup>[2]</sup>. This study also
 typically observes that ChatGPT could obtain a 70% success rate in the SAT Math competition.</p>
 
-<p align="justify">VNHSGE is different from SAT test that they are designed to assess high school graduate’s mathematics capabilities in two different countries. However, I don’t have other relevant research findings in available as reference. Thus, I would like to construct ChatGPT’s prior distribution based on VNHSGE conclusion. I assume it is extremely likely that the correct rate of ChatGPT in solving SAT math problems would lie in the range \[10%, 83%\], such as a 95% probability. Meanwhile, I tend to consider 70% as the mode of the prior Beta distribution. Accordingly, we get the following equations: </p>
+<p align="justify">VNHSGE is different from SAT test that they are designed to assess high school graduate’s mathematics capabilities in two different countries. However, I don’t have other relevant research findings in available as reference. Thus, I would like to construct ChatGPT’s prior distribution based on VNHSGE conclusion. I assume it is extremely likely that the correct rate of ChatGPT in solving SAT math problems would lie in the range [10%, 83%], such as a 95% probability. Meanwhile, I tend to consider 70% as the mode of the prior Beta distribution. Accordingly, we get the following equations: </p>
 
 <p align="center"> 
 $\int_{0.10}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
@@ -55,14 +55,14 @@ $\int_{0.10}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_
 <p align="center"> $\frac{\alpha - 1}{\alpha + \beta - 2} = \frac{\tau_{1}}{\tau_{0}} = 0.7$  <b>[5] </b> </p>
 
 <p align="justify">
-Through solving equation \[4\] & \[5\], I get $\tau_{0}$=20.80 & $\tau_{1}$=14.56. That is $\alpha = 15.56,\beta = 7.24$. Therefore, the <b>Conjugate Prior for ChatGPT 3.5</b> likelihood is </p>
+Through solving equation [4] & [5], I get $\tau_{0}$=20.80 & $\tau_{1}$=14.56. That is $\alpha = 15.56,\beta = 7.24$. Therefore, the <b>Conjugate Prior for ChatGPT 3.5</b> likelihood is </p>
 
 <p align="center">
 p($\theta_{C}$)= $\frac{\Gamma(22.80)}{\Gamma(15.56)\Gamma(7.24)}\theta_{C}^{14.56}{(1 - \theta_{C})}^{6.24}1_{(0,1)}(\theta_{C})$
 <b>[6]</b> 
 </p>
 
-<p align="justify"> <b>Choice of Hyperparameters: Bard.</b> I didn’t find a valid prior study regarding how accurately Bard could answer math questions, particularly SAT math questions. Thus, I would like to take ChatGPT’s prior accuracy range as Bard’s. Meanwhile, A recent study, which also uses 2019-2023 VNHSGE questions to assess Bard’s capabilities in solving math problems, concludes that “Bard achieved an accurate rate of 38.8%, lagging behind ChatGPT and BingChat”<sup>\[3\]</sup>. The accurate rate 38.8% is an
+<p align="justify"> <b>Choice of Hyperparameters: Bard.</b> I didn’t find a valid prior study regarding how accurately Bard could answer math questions, particularly SAT math questions. Thus, I would like to take ChatGPT’s prior accuracy range as Bard’s. Meanwhile, A recent study, which also uses 2019-2023 VNHSGE questions to assess Bard’s capabilities in solving math problems, concludes that “Bard achieved an accurate rate of 38.8%, lagging behind ChatGPT and BingChat”<sup>[3]</sup>. The accurate rate 38.8% is an
 average of the five-year accurate rate. Therefore, I tend to take 40% as the mean of the prior correct rate of Bard. Accordingly, I get the following equations: </p>
 
 <p align="center"> $\int_{0.1}^{0.83}{\frac{\Gamma(\tau_{0} + 2)}{\Gamma(\tau_{1} + 1)\Gamma(\tau_{0} - \tau_{1} + 1)}\theta^{\tau_{1}}{(1 - \theta)}^{\tau_{0} - \tau_{1}}d\theta} = 0.95$
@@ -70,7 +70,7 @@ average of the five-year accurate rate. Therefore, I tend to take 40% as the mea
 
 <p align="center"> $\frac{\alpha}{\alpha + \beta} = \frac{\tau_{1} + 1}{\tau_{0} + 2} = 0.4$ <b>[8]</b> </p>
 
-<p align="justify"> Through solving equation \[7\] & \[8\], I get $\tau_{0}$=3.78 &
+<p align="justify"> Through solving equation [7] & [8], I get $\tau_{0}$=3.78 &
 $\tau_{1}$=1.31. That is $\alpha = 2.31,\beta = 3.47$. Therefore, the
 <b>Conjugate Prior for Bard</b> is </p>
 
@@ -268,7 +268,7 @@ As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the proba
 **(1) PDF for Posterior Difference $\theta_{C} - \theta_{B}$**
 
 To compare the posterior difference, we need to do reparameterization and generate a single PDF for
-$\theta_{C,\ post} - \theta_{B,\ post}$<sup>\[5\]</sup>. Firstly, assumption justification. The two LLMs are developed completely
+$\theta_{C,\ post} - \theta_{B,\ post}$<sup>[5]</sup>. Firstly, assumption justification. The two LLMs are developed completely
 independent with each other. The two posterior distributions for ChatGPT 3.5 and Bard is obtained independently using different
 likelihood and prior distribution. Consequently, the two posteriors are independent with each other. So, the joint distribution
 of $p\left( \theta_{C} \middle| y_{C} \right)$ &  $p(\theta_{B}|y_{B})$ is the product of them: 
@@ -330,10 +330,10 @@ $\frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \rig
 \frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}$.
 $F_{1}$ is the Appell’s first hypergeometric function in two variables (See <b>Appendix II.4</b>). Then, PDF function of p$(\gamma)$ is computed by R.
 
-<p align="justify"> <b>(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.</b> To obtain the 95% HPD credible region, I need the random generation for p(γ). However, it is not easy to derive random samples from this sophisticated PDF p(γ) (See <b>Equation [20] </b>). Thus, I employed the rejection sampling method to extract distribution samples from p(γ) <sup>[8][9]</sup>. Then, based on the extracted distribution samples, p.interval() function gives the 95% HPD credible region as [0.03, 0.50] (See <b> Code 5.(2)</b>). This credible region could be interpreted as, given the observed data y<sup>C</sup> and y<sup>B</sup>, there is a 95% probability that posterior θ<sup>C</sup> - θ<sup>B</sup> lies in credible interval [0.03, 0.50]. It indicates ChatGPT 3.5 performs better than Bard in correctly respond to SAT math problems in most of the times since the whole 95% HPD credible region is larger than 0. And, most probably, ChatGPT 3.5 could outperform Bard in correctly respond to SAT math problems at about 25% (Mode of posterior θ<sup>C</sup> - θ<sup>B</sup> ≈ 0.25). (See <b>Figure 4</b>)
+<p align="justify"> <b>(2) 95% HPD vs. 95% Quartile of Monte Carlos Simulation.</b> To obtain the 95% HPD credible region, I need the random generation for p(γ). However, it is not easy to derive random samples from this sophisticated PDF p(γ) (See <b>Equation [20] </b>). Thus, I employed the rejection sampling method to extract distribution samples from p(γ) <sup>[8][9]</sup>. Then, based on the extracted distribution samples, p.interval() function gives the 95% HPD credible region as [0.03, 0.50] (See <b> Code 5.(2)</b>). This credible region could be interpreted as, given the observed data y<sub>C</sub> and y<sub>B</sub>, there is a 95% probability that posterior θ<sub>C</sub> - θ<sub>B</sub> lies in credible interval [0.03, 0.50]. It indicates ChatGPT 3.5 performs better than Bard in correctly respond to SAT math problems in most of the times since the whole 95% HPD credible region is larger than 0. And, most probably, ChatGPT 3.5 could outperform Bard in correctly respond to SAT math problems at about 25% (Mode of posterior θ<sub>C</sub> - θ<sub>B</sub> ≈ 0.25). (See <b>Figure 4</b>)
 </p>
 
-<p align="justify">Meanwhile, it is found that the probabilities, that the posterior correct rate difference between ChatGPT and Bard (θ<sup>C</sup> - θ<sup>B</sup>) is larger than 10%, 20% and 30%, are 92.97%, 68.37% and 30.14% respectively (See <b>Table 3</b>).” </p>
+<p align="justify">Meanwhile, it is found that the probabilities, that the posterior correct rate difference between ChatGPT and Bard (θ<sub>C</sub> - θ<sub>B</sub>) is larger than 10%, 20% and 30%, are 92.97%, 68.37% and 30.14% respectively (See <b>Table 3</b>).” </p>
 
 <div align="center">
   
@@ -347,7 +347,7 @@ $F_{1}$ is the Appell’s first hypergeometric function in two variables (See <b
 
 <img src="images/Figure 4.png" width="99%" />
 <p align="center"> <b>Figure 4. 95% HPD Credible Region for:
-$$\theta_{C} - \theta_{B}$$
+θ<sub>C</sub> - θ<sub>B</sub>
 Mathematical vs. Monte Carlos Simulation </b> </p>
 
 ## 7. Conclusion
@@ -404,12 +404,12 @@ Mathematical vs. Monte Carlos Simulation </b> </p>
 <thead>
 <tr class="header">
 <th><strong>Obs.</strong></th>
-<th><strong>Test Module<sup>1</sup></strong></th>
-<th><strong>Question #<sup>2</sup></strong></th>
+<th><strong>Test Module1</sup></strong></th>
+<th><strong>Question #2</sup></strong></th>
 <th><strong>Question Input</strong></th>
 <th><strong>Correct Answer</strong></th>
 <th><strong>ChatGPT 3.5 Response</strong></th>
-<th><strong>ChatGPT 3.5 Score<sup>3</sup></strong></th>
+<th><strong>ChatGPT 3.5 Score3</sup></strong></th>
 <th><strong>Bard Response</strong></th>
 <th><strong>Bard Score<sup>3</sup></strong></th>
 </tr>

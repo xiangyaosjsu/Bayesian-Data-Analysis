@@ -177,11 +177,9 @@ $0 < \theta < 1$.
 Then, p($y^{rep}|y$) = $\int_{0}^{1}{p(y^{rep}|\theta)p(\theta|y)d\theta}$
 </p>
 
-**ChatGPT 3.5:**
-
 <div align="center">
 
-p($y^{rep}|y$) = $\int_{0}^{1} {\binom{30}{y^{rep}} \theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}
+<b>ChatGPT 3.5:</b>p($y^{rep}|y$) = $\int_{0}^{1} {\binom{30}{y^{rep}} \theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}
 \frac{\Gamma(52.80)}{\Gamma(41.56)\Gamma(11.24)}
 \theta^{40.56}
 {(1 - \theta_{C})}^{10.24} d\theta}$
@@ -192,11 +190,9 @@ p($y^{rep}|y$) = $\int_{0}^{1} {\binom{30}{y^{rep}} \theta^{y^{rep}}(1 - \theta)
 **\[12\]**
 </div>
 
-**Bard:** 
-
 <div align="center">
   
-p($y^{rep}|y$) = $\int_{0}^{1}{\binom{30}{y^{rep}}\theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}d\theta}$
+<b>Bard:</b>p($y^{rep}|y$) = $\int_{0}^{1}{\binom{30}{y^{rep}}\theta^{y^{rep}}(1 - \theta)^{30 - y^{rep}}\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\theta_{B}^{18.31}{(1 - \theta_{B})}^{15.47}d\theta}$
 
 = $\binom{30}{y^{rep}}\frac{\Gamma(35.78)}{\Gamma(19.31)\Gamma(16.47)}\frac{\Gamma(y^{rep} + 19.31)\Gamma(46.47 - y^{rep})}{\Gamma(65.78)}1_{\{ 0,1,\ldots,30\}}(y^{rep})$
 **\[13\]**
@@ -269,14 +265,15 @@ As we see in <b>Figure 3</b>, Jeffreys prior has a strong opinion that the proba
 
 ## 6. How Different is ChatGPT 3.5 and Bard in Response Accuracy to SAT Math Problems?
 
-<p align="justify">
-<b>(1) PDF for Posterior Difference $\theta_{C}} - \theta_{B}}$ </b>
-To compare the posterior difference, we need to do reparameterization and generate a single PDF for $\theta_{C,\ post} - \theta_{B,\ post}$<sup>\[5\]</sup>. Firstly, assumption justification. The two LLMs are developed completely independent with each other. The two posterior distributions for ChatGPT 3.5 and Bard is obtained independently using different likelihood and prior distribution. Consequently, the two posteriors are independent with each other. So, the joint distribution of 
-$p\left( \theta_{C} \middle| y_{C} \right)\ \&\ p(\theta_{B}|y_{B})$ is the product of them: </p>
+**(1) PDF for Posterior Difference $\theta_{C} - \theta_{B}$**
 
-$p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right) $
+To compare the posterior difference, we need to do reparameterization and generate a single PDF for
+$\theta_{C,\ post} - \theta_{B,\ post}$<sup>\[5\]</sup>. Firstly, assumption justification. The two LLMs are developed completely
+independent with each other. The two posterior distributions for ChatGPT 3.5 and Bard is obtained independently using different
+likelihood and prior distribution. Consequently, the two posteriors are independent with each other. So, the joint distribution
+of $p\left( \theta_{C} \middle| y_{C} \right)\ \&\ p(\theta_{B}|y_{B})$ is the product of them: 
 
-= $p\left( \theta_{C,\ post} \middle| y_{C} \right)p\left( \theta_{B,\ post} \middle| y_{B} \right)$
+$p\left( \theta_{C,\ post},\theta_{B,\ post} \middle| y_{C},y_{B} \right) = $p\left( \theta_{C,\ post} \middle| y_{C} \right)p\left( \theta_{B,\ post} \middle| y_{B} \right)$
 
 $= \frac{\Gamma\left( \alpha_{C} + \beta_{C} \right)}{\Gamma\left( \alpha_{C} \right)\Gamma\left( \beta_{C} \right)}\theta_{C}^{\alpha_{C} - 1}\left( 1 - \theta_{C} \right)^{\beta_{C} - 1}\frac{\Gamma\left( \alpha_{B} + \beta_{B} \right)}{\Gamma\left( \alpha_{B} \right)\Gamma\left( \beta_{B} \right)}{\theta_{B}^{\alpha_{B} - 1}\left( 1 - \theta_{B} \right)}^{\beta_{B} - 1}$
 **\[17\]**
